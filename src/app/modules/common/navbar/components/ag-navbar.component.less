@@ -1,0 +1,48 @@
+:host {
+  background: rgba(204, 204, 204, 0.5);
+
+  display: grid;
+
+  grid-template-columns: 6fr 4fr;
+
+  .ag-tabs {
+    cursor: pointer;
+    grid-column-start: 1;
+    grid-column-end: 2;
+
+    padding-left: 100px;
+
+    display: inline-flex;
+    justify-content: left;
+    align-items: center;
+
+    font-family: Six Caps;
+
+    &__tab {
+      text-transform: uppercase;
+      height: 100%;
+      width: 150px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5em;
+    }
+    &__tab:hover {
+      background-color: #171717;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  :host {
+    .ag-tabs {
+      grid-template-columns: 1fr;
+
+      grid-column-start: 1;
+      grid-column-end: 3;
+
+      padding-left: 0px;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+:host {
+  width: 350px;
+  height: 30px;
+
+  display: grid;
+
+  grid-template-columns: 3.5fr 0.5fr 2fr;
+
+  margin: auto;
+
+  .ag-search {
+      &__input {
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        grid-row: 1;
+        z-index: 6;
+
+        padding-left: 6px;
+        transition: background 0.4s;
+
+        &.clear-visible {
+         background-position: right 5px center;
+        }
+
+        &:focus {
+         border-color: #ABABAB;
+         outline: 0px;
+        }
+      }
+
+      &__cross {
+        animation: fadeIn 2s;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row: 1;
+        z-index: 7;
+
+        background-size: 17px !important;
+        background-position: center !important;
+        cursor: pointer;
+        margin: auto;
+
+        width: 17px;
+        height: 17px;
+        background: #fff url(../../../../../assets/img/delete/delete_icon.png);
+      }
+
+      &__button {
+        grid-column: 3 / 4;
+        background-color: #171717;
+        color: white;
+        border: 0px;
+        outline: 0px;
+        cursor: pointer;
+
+        &._disabled {
+          pointer-events: none;
+          color: grey;
+          background-color: #212121;
+        }
+
+        &:hover {
+         color: #171717;
+         background-color: #ABABAB;
+        }
+      }
+  }
+}
