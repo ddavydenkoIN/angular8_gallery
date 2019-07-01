@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule } from "@angular/router";
 
 import { AgNavbarComponent } from './components/ag-navbar.component';
+import { AgSharedModule } from "../../shared/shared.module";
+
 
 @NgModule({
   imports: [
-    CommonModule
+    AgSharedModule,
+    RouterModule
   ],
   declarations: [AgNavbarComponent],
   exports: [AgNavbarComponent]

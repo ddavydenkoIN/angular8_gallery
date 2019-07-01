@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'angular8-gallery';
+
+  constructor(private translateService: TranslateService) {
+    translateService.addLangs(["en", "ru"]);
+    translateService.setDefaultLang('en');
+
+    const browserLang = translateService.getBrowserLang();
+    // translateService.use(browserLang.match(/en|ru/) ? browserLang : 'ru');
+    translateService.use('en');
+  }
 }

@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AgHomeComponent } from "./components/ag-home.component";
+import { AgHomeComponent } from "./ag-home.component";
 
 const routes: Routes = [
-  {path: '', component: AgHomeComponent}
+  {
+    path: '',
+    component: AgHomeComponent,
+    children: [
+      {
+        path: 'about',
+        pathMatch: 'full',
+        loadChildren: () => import('./modules/about/ag-about.module').then(mod => mod.AgAboutModule),
+      }
+    ]
+  }
 ];
 
 @NgModule({

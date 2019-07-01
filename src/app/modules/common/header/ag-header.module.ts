@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { AgHeaderComponent } from './components/ag-header.component';
+import { AgSharedModule } from "../../shared/shared.module";
 
 @NgModule({
   imports: [
-    CommonModule
+    AgSharedModule
   ],
   declarations: [AgHeaderComponent],
   exports: [AgHeaderComponent]

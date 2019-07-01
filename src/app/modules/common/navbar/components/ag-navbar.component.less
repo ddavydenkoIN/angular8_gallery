@@ -1,3 +1,5 @@
+@import "../../../../../assets/styles/fonts";
+
 :host {
   background: rgba(204, 204, 204, 0.5);
 
@@ -6,7 +8,6 @@
   grid-template-columns: 6fr 4fr;
 
   .ag-tabs {
-    cursor: pointer;
     grid-column-start: 1;
     grid-column-end: 2;
 
@@ -16,9 +17,10 @@
     justify-content: left;
     align-items: center;
 
-    font-family: Six Caps;
+    font-family: #ag-fonts[sixCaps];
 
     &__tab {
+      cursor: pointer;
       text-transform: uppercase;
       height: 100%;
       width: 150px;
@@ -27,6 +29,10 @@
       justify-content: center;
       align-items: center;
       font-size: 2.5em;
+
+      &.ag_active {
+        background-color: #171717;
+      }
     }
     &__tab:hover {
       background-color: #171717;
@@ -36,11 +42,11 @@
 
 @media (max-width: 1100px) {
   :host {
+    grid-template-columns: 1fr;
     .ag-tabs {
-      grid-template-columns: 1fr;
-
       grid-column-start: 1;
       grid-column-end: 3;
+      justify-content: center;
 
       padding-left: 0px;
     }

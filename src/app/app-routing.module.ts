@@ -10,7 +10,7 @@ const routes: Routes = [
     {
         path: "panda",
         loadChildren: () => import('./modules/pages/error-page/ag-error-page.module').then(mod => mod.AgErrorPageModule),
-        data: { title: 'Home page' }
+        data: { title: 'Error page' }
     },
     { path: '', pathMatch: 'full', redirectTo: '/home' },
     { path: '**', loadChildren: () => import('./modules/pages/error-page/ag-error-page.module').then(mod => mod.AgErrorPageModule)}

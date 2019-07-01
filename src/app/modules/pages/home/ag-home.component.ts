@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './ag-home.component.html',
   styleUrls: ['./ag-home.component.less']
 })
-export class AgHomeComponent implements OnInit{
+export class AgHomeComponent implements OnInit {
   thumbnails: any[];
 
   ngOnInit() {

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from "@angular/common/http";
 
 import { StoreRouterConnectingModule } from "@ngrx/router-store";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -10,22 +11,27 @@ import { AppComponent } from './app.component';
 import { reducers, metaReducers } from './store/reducers';
 import { environment } from '../environments/environment';
 import { AgRoutingModule } from "./app-routing.module";
+import { AgTranslateModule } from "./modules/common/translate/ag-translate.module";
+
 
 @NgModule({
     imports: [
-        BrowserModule,
-        AgRoutingModule,
-        StoreModule.forRoot(reducers, { metaReducers }),
-        !environment.production ? StoreDevtoolsModule.instrument({
-            name: 'Angular 8 Gallery'
-        }) : [],
-        StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
-        BrowserAnimationsModule,
+      BrowserModule,
+      BrowserAnimationsModule,
+
+      AgRoutingModule,
+      AgTranslateModule,
+
+      HttpClientModule,
+      StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
+      StoreModule.forRoot(reducers, { metaReducers }),
+      !environment.production ? StoreDevtoolsModule.instrument({
+          name: 'Angular 8 Gallery'
+      }) : [],
     ],
     declarations: [
-        AppComponent
+      AppComponent
     ],
-    providers: [],
-    bootstrap: [ AppComponent ]
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
