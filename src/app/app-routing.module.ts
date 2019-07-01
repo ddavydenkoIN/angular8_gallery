@@ -12,7 +12,7 @@ const routes: Routes = [
         loadChildren: () => import('./modules/pages/error-page/ag-error-page.module').then(mod => mod.AgErrorPageModule),
         data: { title: 'Error page' }
     },
-    { path: '', pathMatch: 'full', redirectTo: '/home' },
+    { path: '', pathMatch: 'full', redirectTo: '/home/galleries' },
     { path: '**', loadChildren: () => import('./modules/pages/error-page/ag-error-page.module').then(mod => mod.AgErrorPageModule)}
 ];
 

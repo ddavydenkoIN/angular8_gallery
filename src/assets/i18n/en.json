@@ -1,6 +1,19 @@
 {
   "HOME": {
     "TITLE": "Angular8-gallery",
-    "SUBTITLE": "Build on the CSS-grid basis"
+    "SUBTITLE": "Build on the CSS-grid basis",
+    "ABOUT": {
+      "ROUTE_NAME": "About"
+    },
+    "TECHNOLOGY": {
+      "ROUTE_NAME": "Technology"
+    },
+    "GALLERIES": {
+      "ROUTE_NAME": "Galleries"
+    }
+  },
+  "SEARCH": {
+    "PLACEHOLDER": "Enter search text",
+    "BUTTON_NAME": "Search"
   }
 }

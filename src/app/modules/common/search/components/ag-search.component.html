@@ -1,7 +1,7 @@
 <input  class="ag-search__input clear-visible"
         type="text"
         [(ngModel)]="searchValue"
-        placeholder="Enter search string"
+        placeholder="{{'SEARCH.PLACEHOLDER' | translate}}"
 >
 
 <div class="ag-search__cross"
@@ -13,5 +13,5 @@
         type="submit"
         [ngClass]="{'_disabled': !searchValue}"
         (click)="consoleLog(searchValue)">
-    Search
+    {{'SEARCH.BUTTON_NAME' | translate}}
 </button>

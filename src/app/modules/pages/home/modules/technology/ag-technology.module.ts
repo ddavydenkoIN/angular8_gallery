@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
+import { AgSharedModule } from "../../../../shared/shared.module";
+import { AgTechnologyRouterModule } from "./ag-technology-router.module";
+import { AgTechnologyComponent } from "./components/ag-technology.component";
 
 @NgModule({
-  declarations: [],
   imports: [
-    CommonModule
-  ]
+    AgSharedModule,
+    AgTechnologyRouterModule
+  ],
+  declarations: [AgTechnologyComponent],
 })
 export class AgTechnologyModule { }
