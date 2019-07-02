@@ -1,3 +1,8 @@
-<ng-container *ngFor="let gallery of galleries">
-    <ag-gallery-thumbnail></ag-gallery-thumbnail>
+
+<div class="ag-gallery-list__header">{{"HOME.GALLERIES.HEADER_NAME" | translate}}</div>
+
+<ng-container *ngFor="let thumbnail of galleryThumbnails; let ind = index">
+    <ag-gallery-thumbnail [index]="ind"
+                          [model]="thumbnail">
+    </ag-gallery-thumbnail>
 </ng-container>

@@ -1,5 +1,11 @@
 
-<div class="ag-gallery-thumbnail__img"></div>
-<div class="ag-gallery-thumbnail__description">
-
+<div class="ag-gallery-thumbnail__img" [ngClass]="{'_even': isEven}"></div>
+<div class="ag-gallery-thumbnail__description" [ngClass]="{'_even': isEven}">
+    <div class="ag-gallery-thumbnail__description-header">{{thumbnail.header}}</div>
+    <div class="ag-gallery-thumbnail__description-props">
+        {{thumbnail.propHeader}}
+        <div class="ag-gallery-thumbnail__description-props-prop" *ngFor="let prop of thumbnail.propsList">
+            {{prop.name + ":" + prop.value}}
+        </div>
+    </div>
 </div>
