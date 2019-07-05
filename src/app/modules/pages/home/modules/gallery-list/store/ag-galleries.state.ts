@@ -1,6 +1,6 @@
-import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
+import { createEntityAdapter, Dictionary, EntityAdapter, EntityState } from "@ngrx/entity";
 
-import { AgGallery } from "../../../../../../models/index";
+import { AgGallery } from "../../../../../../models";
 
 export const agGalleriesAdapter: EntityAdapter<AgGallery> = createEntityAdapter<AgGallery>({
   selectId: model => model.id
@@ -9,4 +9,4 @@ export const agGalleriesAdapter: EntityAdapter<AgGallery> = createEntityAdapter<
 export interface AgGalleriesState extends EntityState<AgGallery> {
 }
 
-export const agGalleriesInitialState: AgGalleriesState = agGalleriesAdapter.getInitialState();
+export const agGalleriesInitialState: AgGalleriesState = <AgGalleriesState>agGalleriesAdapter.getInitialState();

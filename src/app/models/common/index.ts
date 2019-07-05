@@ -1,2 +1,2 @@
-export * from './name-value';
-export * from './name-id';
+export * from './name-value.model';
+export * from './name-id.model';

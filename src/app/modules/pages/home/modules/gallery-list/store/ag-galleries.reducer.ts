@@ -6,7 +6,6 @@ import { loadGalleriesSuccess } from "./ag-galleries.actions";
 const reducer = createReducer(
   agGalleriesInitialState,
   on(loadGalleriesSuccess, (state, {galleries}) => {
-    console.log(galleries);
     return agGalleriesAdapter.addAll(galleries, state);
   })
 );

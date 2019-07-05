@@ -1,4 +1,5 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { Dictionary } from "@ngrx/entity";
 
 import { agGalleriesAdapter } from "./ag-galleries.state";
 import { AgGallery, AgGalleryThumbnail } from "../../../../../../models";
@@ -18,7 +19,7 @@ export const selectGalleriesPreviewData = createSelector(
     id: gallery.id,
     header: gallery.name,
     propHeader: gallery.propHeader,
-    propsList: gallery.propsList,
+    props: gallery.props,
     thumbnailImg: {
       name: gallery.thumbnailImgName,
       folder: gallery.thumbnailImgFolder
@@ -29,4 +30,9 @@ export const selectGalleriesPreviewData = createSelector(
 export const isNoGalleryLoaded = createSelector(
   selectGalleriesIds,
   (ids: number[]): boolean => !ids || !ids.length
+);
+
+export const selectGalleryById = createSelector(
+  selectGalleriesEntities,
+  (entities: Dictionary<AgGallery>, id: string) => entities[id]
 );

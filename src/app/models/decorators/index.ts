@@ -1,1 +1,1 @@
-export * from './simple-change';
+export * from './simple-change.model';

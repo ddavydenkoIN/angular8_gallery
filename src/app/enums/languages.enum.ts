@@ -1,4 +1,4 @@
-export enum AgLanguages {
+export enum AgLanguagesEnum {
   ESP = 'es',
   ENG = 'en',
   UKR = 'uk',

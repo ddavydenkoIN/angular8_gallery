@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { AgGalleryComponent } from './components/ag-gallery.component';
+import { AgSharedModule } from "../../../../shared/ag-shared.module";
 
 @NgModule({
   declarations: [AgGalleryComponent],
   imports: [
-    CommonModule
-  ]
+    AgSharedModule
+  ],
+  exports: [AgGalleryComponent]
 })
 export class AgGalleryModule { }

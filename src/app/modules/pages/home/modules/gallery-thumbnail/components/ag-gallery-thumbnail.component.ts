@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AgOnChange } from "../../../../../../providers/decorators/ag-on-changes.decorator";
-import { AgGalleryThumbnail } from "../../../../../../models/gallery";
-import { GALLERY_LIST_THUMBNAILS_IMG_FOLDER } from "../../../../../../consts/img";
+import { AgGalleryThumbnail } from "../../../../../../models";
+import { GALLERY_LIST_THUMBNAILS_IMG_FOLDER } from "../../../../../../consts";
 
 @Component({
   selector: 'ag-gallery-thumbnail',

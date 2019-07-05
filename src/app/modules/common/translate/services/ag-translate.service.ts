@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { TranslateService } from "@ngx-translate/core";
-import { AgLanguages } from "../../../../consts/enums";
+import { AgLanguagesEnum } from "../../../../enums";
 
 @Injectable()
 export class AgTranslateService {
@@ -11,7 +11,7 @@ export class AgTranslateService {
     return this.translateService.instant(key);
   }
 
-  use(lang: AgLanguages): void {
+  use(lang: AgLanguagesEnum): void {
     this.translateService.use(lang);
   }
 }

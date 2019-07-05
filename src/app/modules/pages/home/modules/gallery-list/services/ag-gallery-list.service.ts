@@ -3,9 +3,9 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 import { AgGalleriesStoreService } from "../store/ag-galleries-store.service";
-import { AgGalleryThumbnail } from "../../../../../../models/gallery";
+import { AgGallery, AgGalleryThumbnail } from "../../../../../../models";
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class AgGalleryListService {
 
   constructor(private galleriesStoreService: AgGalleriesStoreService) {}
@@ -20,5 +20,9 @@ export class AgGalleryListService {
 
   isNoGalleryLoaded(): Observable<boolean> {
     return this.galleriesStoreService.isNoGalleryLoaded();
+  }
+
+  getGalleryById(id: string): Observable<AgGallery> {
+    return this.galleriesStoreService.retrieveGalleryById(id);
   }
 }

@@ -1,2 +1,2 @@
-export * from './gallery-thumbnail';
-export * from './gallery';
+export * from './gallery-thumbnail.model';
+export * from './gallery.model';

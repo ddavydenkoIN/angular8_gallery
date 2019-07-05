@@ -8,9 +8,10 @@
      (click)="openPlayground(thumbnail.id)"
 >
     <div class="ag-gallery-thumbnail__description-header">{{thumbnail.header | translate}}</div>
-    <div class="ag-gallery-thumbnail__description-props">
+    <div class="ag-gallery-thumbnail__description-props"
+         [ngClass]="{'_even': isEven}">
         {{thumbnail.propHeader | translate}}
-        <div class="ag-gallery-thumbnail__description-props-prop" *ngFor="let prop of thumbnail.propsList">
+        <div class="ag-gallery-thumbnail__description-props-prop" *ngFor="let prop of thumbnail.props.child.concat(thumbnail.props.parent)">
             {{prop.name + ":" + prop.value}}
         </div>
     </div>

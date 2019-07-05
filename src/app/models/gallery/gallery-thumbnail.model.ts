@@ -1,10 +1,12 @@
 import { AgNameValue } from "../common";
-import { AgImg } from "./gallery";
+import { AgGalleryProperties, AgImg } from "./gallery.model";
 
 export interface AgGalleryThumbnail {
   id: number;
   header: string;
   propHeader: string;
-  propsList: AgNameValue[];
+  props: AgGalleryProperties;
   thumbnailImg: AgImg;
+  propsList?: AgNameValue[];
 }
+
