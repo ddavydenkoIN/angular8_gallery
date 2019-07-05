@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AgGalleriesStoreService } from "../../../pages/home/modules/gallery-list/store/ag-galleries-store.service";
 
 @Component({
   selector: 'ag-search',
@@ -9,12 +10,13 @@ export class AgSearchComponent implements OnInit {
 
   searchValue: string = '';
 
-  constructor() { }
+  constructor(private agStoreService: AgGalleriesStoreService) { }
 
   ngOnInit() {
   }
 
   consoleLog(value: string) {
+    this.agStoreService.loadGalleries();
     console.log(value);
   }
 

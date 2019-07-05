@@ -5,7 +5,7 @@ import { AgHomeRoutingModule } from "./ag-home-routing.module";
 import { AgHeaderModule } from "../../common/header/ag-header.module";
 import { AgNavbarModule } from "../../common/navbar/ag-navbar.module";
 import { AgSearchModule } from "../../common/search/ag-search.module";
-import { AgSharedModule } from "../../shared/shared.module";
+import { AgSharedModule } from "../../shared/ag-shared.module";
 
 @NgModule({
     imports: [

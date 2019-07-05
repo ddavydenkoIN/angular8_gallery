@@ -1,4 +1,11 @@
-<div class="ag-header-text">
-    <h1 class="ag-header-text__name ag-searchable">{{'HOME.TITLE' | translate}}</h1>
+<div class="ag-header__text">
+    <h1 class="ag-header__text-name ag-searchable">{{'HOME.TITLE' | translate}}</h1>
   <span class="ag-searchable" id="ag-searchable">{{'HOME.SUBTITLE' | translate}}</span>
+</div>
+<div class="ag-header__localization">
+    <div class="ag-header__localization-btn"
+         *ngFor="let lang of languages"
+         [ngStyle]="{'background-image': 'url(' + languageIconsUrl + lang + '.png)'}"
+         (click)="setWebsitesLanguage(lang)">
+    </div>
 </div>

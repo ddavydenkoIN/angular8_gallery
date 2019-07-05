@@ -1,3 +1,5 @@
+@import '~src/assets/styles/colors';
+
 :host {
   margin: 20px 30px 20px 30px;
   display: grid;
@@ -7,7 +9,7 @@
 
   .ag-gallery-list__header {
     font-size: 4em;
-    border-bottom: 2px solid #ffffff59;
+    border-bottom: 2px solid #ag-colors[textSecondary];
     font-family: fantasy;
     padding-bottom: 5px;
   }
@@ -21,5 +23,14 @@
   .ag-gallery-list__header {
     text-align: center;
   }
+}
 
+@media (max-width: 600px) {
+  :host {
+    margin: 0px !important;
+
+    ag-gallery-thumbnail {
+      padding: 15px;
+    }
+  }
 }

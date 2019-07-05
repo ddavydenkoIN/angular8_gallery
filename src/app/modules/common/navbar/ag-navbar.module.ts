@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
 
 import { AgNavbarComponent } from './components/ag-navbar.component';
-import { AgSharedModule } from "../../shared/shared.module";
+import { AgSharedModule } from "../../shared/ag-shared.module";
 
 
 @NgModule({

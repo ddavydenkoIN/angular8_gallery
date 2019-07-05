@@ -3,7 +3,7 @@ import { FormsModule } from "@angular/forms";
 import { MatButtonModule } from '@angular/material/button';
 
 import { AgSearchComponent } from './components/ag-search.component';
-import { AgSharedModule } from "../../shared/shared.module";
+import { AgSharedModule } from "../../shared/ag-shared.module";
 
 @NgModule({
   declarations: [AgSearchComponent],

@@ -1,9 +1,15 @@
 
-<div class="ag-gallery-thumbnail__img" [ngClass]="{'_even': isEven}"></div>
-<div class="ag-gallery-thumbnail__description" [ngClass]="{'_even': isEven}">
-    <div class="ag-gallery-thumbnail__description-header">{{thumbnail.header}}</div>
+<div class="ag-gallery-thumbnail__img"
+     [ngClass]="{'_even': isEven}"
+     [ngStyle]="{'background-image': 'url(' + imgLocation + thumbnail.thumbnailImg.name + ')'}">
+</div>
+<div class="ag-gallery-thumbnail__description"
+     [ngClass]="{'_even': isEven}"
+     (click)="openPlayground(thumbnail.id)"
+>
+    <div class="ag-gallery-thumbnail__description-header">{{thumbnail.header | translate}}</div>
     <div class="ag-gallery-thumbnail__description-props">
-        {{thumbnail.propHeader}}
+        {{thumbnail.propHeader | translate}}
         <div class="ag-gallery-thumbnail__description-props-prop" *ngFor="let prop of thumbnail.propsList">
             {{prop.name + ":" + prop.value}}
         </div>

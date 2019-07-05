@@ -1,26 +1,55 @@
+@import '~src/assets/styles/colors';
+
 :host {
   background-image: url("../../../../../assets/img/header/header-background.png");
   background-size: cover;
 
   height: 470px;
 
+  position: relative;
+
   display: grid;
 
   grid-template-columns: repeat(8, 1fr);
   grid-auto-rows: auto;
 
-  .ag-header-text {
-    grid-column-start: 2;
-    grid-column-end: 8;
+  .ag-header {
+    &__text {
+      grid-column-start: 2;
+      grid-column-end: 8;
 
-    grid-row-start: 2;
-    grid-row-end: 3;
+      grid-row-start: 2;
+      grid-row-end: 3;
 
-    color: white;
+      color: #ag-colors[textPrimary];
 
-    &__name {
-      font-size: 4em;
-      margin-bottom: 5px;
+      &-name {
+        font-size: 4em;
+        margin-bottom: 5px;
+      }
+    }
+
+    &__localization {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      &-btn {
+        width: 40px;
+        height: 40px;
+        margin-top: 5px;
+        cursor: pointer;
+
+        background-size: cover;
+        background-position: center;
+        &:hover {
+          transform: scale(1.5);
+        }
+        &:active {
+          border-radius: 100%;
+          box-shadow: 0px 0px 20px white;
+        }
+      }
     }
   }
 }
@@ -31,10 +60,12 @@
 
     grid-template-rows: 1fr 1fr 1fr 70px;
 
-    .ag-header-text {
-      grid-column-start: 2;
-      grid-column-end: 8;
-      justify-self: center;
+    .ag-header {
+      &__text {
+        grid-column-start: 2;
+        grid-column-end: 8;
+        justify-self: center;
+      }
     }
   }
 }

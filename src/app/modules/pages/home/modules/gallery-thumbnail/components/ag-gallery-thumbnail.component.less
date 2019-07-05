@@ -1,4 +1,5 @@
-@header-font-family: fantasy;
+@import '~src/assets/styles/colors';
+@import '~src/assets/styles/fonts';
 
 :host {
   display: grid;
@@ -14,7 +15,6 @@
       grid-row: 1 / span 6;
       grid-column: 1 / span 3;
 
-      background-image: url('~src/assets/img/gallery-thumbnails/thumbnail.png');
       background-position: center;
       background-size: cover;
 
@@ -32,11 +32,19 @@
       grid-column: 2 / span 10;
 
       display: grid;
-
-
       grid-template-areas:
               ". . h h p"
               ". . h h p";
+
+      cursor: pointer;
+      background-color: rgba(14, 14, 14, 0.7);
+      box-shadow: 0px 0px 25px #ag-colors[textPrimary];
+
+      z-index: 2;
+
+      &:hover {
+        box-shadow: 0px 0px 25px gold;
+      }
 
       &._even {
         grid-template-areas:
@@ -47,7 +55,7 @@
       &-header {
         grid-area: h;
         font-size: 2em;
-        font-family: @header-font-family;
+        font-family: #ag-fonts[header-font-family];
 
         margin: auto;
       }
@@ -61,20 +69,15 @@
         background-color: black;
         width: auto;
 
-        font-family: @header-font-family;
+        font-family: #ag-fonts[header-font-family];
         padding: 15px;
 
         &-prop {
           margin-top: 5px;
           font-size: medium;
-          color: #8c8477;
+          color: #ag-colors[textSecondary];
         }
       }
-
-      background-color: rgba(14, 14, 14, 0.7);
-      box-shadow: 0px 0px 25px white;
-
-      z-index: 2;
     }
   }
 }
@@ -87,7 +90,7 @@
 
     .ag-gallery-thumbnail {
       &__description {
-        box-shadow: 0px 0px 40px white;
+        box-shadow: 0px 0px 40px #ag-colors[textPrimary];
         background-color: rgba(14, 14, 14, 0.7);
 
         display: grid;
@@ -126,7 +129,7 @@
 
     .ag-gallery-thumbnail {
       &__description {
-        box-shadow: 0px 0px 40px white;
+        box-shadow: 0px 0px 40px #ag-colors[textPrimary];
         background-color: rgba(14, 14, 14, 0.7);
 
         grid-column: 2 / span 3;
@@ -141,6 +144,38 @@
           grid-row: 1 / span 6;
           grid-column: 3;
           max-width: 700px;
+        }
+      }
+    }
+
+  }
+}
+@media (max-width: 600px) {
+  :host {
+    display: grid;
+
+    grid-template-rows: repeat(6, 50px);
+    grid-template-columns: 50px 50px 1fr 50px 50px;
+
+    .ag-gallery-thumbnail {
+      padding: 10px;
+
+      &__description {
+        box-shadow: 0px 0px 40px #ag-colors[textPrimary];
+        background-color: rgba(14, 14, 14, 0.7);
+
+        grid-column: 1 / span 6;
+
+        &._even {
+          grid-column: 1 / span 6;
+        }
+      }
+
+      &__img {
+        grid-column: 2 / span 3;
+
+        &._even {
+          grid-column: 2 / span 3;
         }
       }
     }

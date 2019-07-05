@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { AgSharedModule } from "../../../../shared/shared.module";
+import { AgSharedModule } from "../../../../shared/ag-shared.module";
 import { AgTechnologyRouterModule } from "./ag-technology-router.module";
 import { AgTechnologyComponent } from "./components/ag-technology.component";
 

@@ -1,48 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Observable } from "rxjs";
+import { filter, takeUntil } from "rxjs/operators";
+
 import { AgGalleryThumbnail } from "../../../../../../models";
+import { AgGalleryListService } from "../services/ag-gallery-list.service";
+import { AgUnsubscribe } from "../../../../../../providers/abstract/ag-unsubscribe";
 
 @Component({
   selector: 'ag-gallery-list',
   templateUrl: './ag-gallery-list.component.html',
   styleUrls: ['./ag-gallery-list.component.less']
 })
-export class AgGalleryListComponent implements OnInit {
+export class AgGalleryListComponent extends AgUnsubscribe implements OnInit {
 
-  galleries: any = [1, 2 , 3, 4, 5];
+  galleriesList$: Observable<AgGalleryThumbnail[]>;
 
-  galleryThumbnails: AgGalleryThumbnail[] = [
-    {
-      header: 'Traditional Floats - broken',
-      propHeader: 'Props used:',
-      propsList: [
-        {name: 'float', value: 'left'},
-        {name: 'width', value: '250px'},
-        {name: 'margin-right', value: '20px'}
-      ]
-    },
-    {
-      header: 'Traditional Floats - broken',
-      propHeader: 'Props used',
-      propsList: [
-        {name: 'float', value: 'left'},
-        {name: 'width', value: '250px'},
-        {name: 'margin-right', value: '20px'}
-      ]
-    },
-    {
-      header: 'Traditional Floats - broken',
-      propHeader: 'Props used',
-      propsList: [
-        {name: 'float', value: 'left'},
-        {name: 'width', value: '250px'},
-        {name: 'margin-right', value: '20px'}
-      ]
-    }
-  ]
-  constructor() { }
+  constructor(private agGalleriesService: AgGalleryListService) {
+    super();
+  }
 
   ngOnInit() {
+    this.agGalleriesService.isNoGalleryLoaded()
+      .pipe(
+        takeUntil(this.destroy$),
+        filter(isNoGalleryLoaded => isNoGalleryLoaded)
+      ).subscribe(() => this.agGalleriesService.loadAllGalleries())
+
+
+    this.galleriesList$ = this.agGalleriesService.retrieveGalleries();
   }
 
 }
