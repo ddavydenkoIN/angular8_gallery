@@ -1,18 +1,26 @@
 
 <div class="ag-gallery-thumbnail__img"
-     [ngClass]="{'_even': isEven}"
      [ngStyle]="{'background-image': 'url(' + imgLocation + thumbnail.thumbnailImg.name + ')'}">
 </div>
 <div class="ag-gallery-thumbnail__description"
-     [ngClass]="{'_even': isEven}"
      (click)="openPlayground(thumbnail.id)"
 >
     <div class="ag-gallery-thumbnail__description-header">{{thumbnail.header | translate}}</div>
-    <div class="ag-gallery-thumbnail__description-props"
-         [ngClass]="{'_even': isEven}">
-        {{thumbnail.propHeader | translate}}
-        <div class="ag-gallery-thumbnail__description-props-prop" *ngFor="let prop of thumbnail.props.child.concat(thumbnail.props.parent)">
-            {{prop.name + ":" + prop.value}}
+    <div class="ag-gallery-thumbnail__description-props">
+        <div>
+            <div class="ag-gallery-thumbnail__description-props-header">{{thumbnail.propImgHeader | translate}}</div>
+            <div class="ag-gallery-thumbnail__description-props-value" *ngFor="let prop of thumbnail.props.parent">
+                {{prop.name + ":" + prop.value}}
+            </div>
         </div>
+        <div>
+            <div class="ag-gallery-thumbnail__description-props-header">{{thumbnail.propContainerHeader | translate}}</div>
+            <div class="ag-gallery-thumbnail__description-props-value"
+                 *ngFor="let prop of thumbnail.props.child">
+                {{prop.name + ":" + prop.value}}
+            </div>
+        </div>
+
     </div>
 </div>
+<div class="ag-gallery-thumbnail__index">{{index + 1}}</div>

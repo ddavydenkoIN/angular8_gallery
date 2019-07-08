@@ -11,13 +11,14 @@ export class AgDataService implements InMemoryDbService {
       {
         id: 1,
         name: 'HOME.GALLERIES.TRADITIONAL_FLOATS',
-        propHeader: 'HOME.GALLERIES.PROPS_USED',
+        propContainerHeader: 'HOME.GALLERIES.PROPS_CONTAINER',
+        propImgHeader: 'HOME.GALLERIES.PROPS_IMG',
         props: {
           parent: [],
           child: [
             {name: 'float', value: 'left'},
-            {name: 'width', value: '250px'},
-            {name: 'margin-right', value: '20px'}
+            {name: 'width', value: '24%'},
+            {name: 'margin', value: '5px'}
           ]
         },
         thumbnailImgName: 'thumbnail.png',
@@ -25,15 +26,16 @@ export class AgDataService implements InMemoryDbService {
       },
       {
         id: 2,
-        name: 'HOME.GALLERIES.TRADITIONAL_FLOATS',
-        propHeader: 'HOME.GALLERIES.PROPS_USED',
+        name: 'HOME.GALLERIES.GRID_TEMPLATE_ROWS_REPEAT',
+        propContainerHeader: 'HOME.GALLERIES.PROPS_CONTAINER',
+        propImgHeader: 'HOME.GALLERIES.PROPS_IMG',
         props: {
-          parent: [],
-          child: [
-            {name: 'float', value: 'left'},
-            {name: 'width', value: '250px'},
-            {name: 'margin-right', value: '20px'}
-          ]
+          parent: [
+            {name: 'display', value: 'grid'},
+            {name: 'grid-template-columns', value: 'repeat(4, 1fr)'},
+            {name: 'grid-gap', value: '10px'}
+          ],
+          child: []
         },
         thumbnailImgName: 'thumbnail.png',
         thumbnailImgFolder: '/gallery-thumbnails'
@@ -41,7 +43,8 @@ export class AgDataService implements InMemoryDbService {
       {
         id: 3,
         name: 'HOME.GALLERIES.TRADITIONAL_FLOATS',
-        propHeader: 'HOME.GALLERIES.PROPS_USED',
+        propContainerHeader: 'HOME.GALLERIES.PROPS_CONTAINER',
+        propImgHeader: 'HOME.GALLERIES.PROPS_IMG',
         props: {
           parent: [],
           child: [

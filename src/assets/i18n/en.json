@@ -12,8 +12,14 @@
       "HEADER_NAME": "list of galleries",
       "ROUTE_NAME": "Galleries",
       "PROPS_USED": "Props used:",
-      "TRADITIONAL_FLOATS": "Traditional Floats - broken"
+      "TRADITIONAL_FLOATS": "Traditional Floats - broken",
+      "GRID_TEMPLATE_ROWS_REPEAT": "Display GRID: Template rows Repeat.",
+      "PROPS_CONTAINER": "Container props:",
+      "PROPS_IMG": "Image Props:"
     }
+  },
+  "PLAYGROUND": {
+    "HEADER": "playground"
   },
   "SEARCH": {
     "PLACEHOLDER": "Enter search text",

@@ -1,3 +1,13 @@
-<p>
-  {{gallery | json}}
-</p>
+<div class="ag-playground__container"
+    [ngStyle]="styles?.container">
+    <ng-container *ngFor="let thumbnail of thumbnails">
+        <ag-thumbnail
+                [ngStyle]="styles?.img"
+                [description]="thumbnail.description"
+                [title]="thumbnail.title"
+                [thumbnailUrl]="thumbnail.thumbnailUrl"
+        ></ag-thumbnail>
+    </ng-container>
+</div>
+
+

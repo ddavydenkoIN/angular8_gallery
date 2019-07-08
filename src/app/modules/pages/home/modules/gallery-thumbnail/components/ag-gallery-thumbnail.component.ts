@@ -1,7 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { AgOnChange } from "../../../../../../providers/decorators/ag-on-changes.decorator";
 import { AgGalleryThumbnail } from "../../../../../../models";
 import { GALLERY_LIST_THUMBNAILS_IMG_FOLDER } from "../../../../../../consts";
 
@@ -12,10 +10,6 @@ import { GALLERY_LIST_THUMBNAILS_IMG_FOLDER } from "../../../../../../consts";
 })
 export class AgGalleryThumbnailComponent {
 
-  @AgOnChange(function(this: AgGalleryThumbnailComponent, index: number) {
-    this.isEven = index % 2 === 0 || index === 0;
-    return index;
-  })
   @Input()
   index: number;
 

@@ -1,4 +1,10 @@
-<p>
-  ag-playground works!
-</p>
-<ag-gallery [gallery]="gallery$ | async"></ag-gallery>
+<div class="ag-playground__header">
+    {{'PLAYGROUND.HEADER' | translate}}
+    <a class="ag-playground__header-return-link" routerLink="/home" href="">return</a>
+</div>
+<div class="ag-playground__options">
+    text
+</div>
+<div class="ag-playground__gallery-container">
+    <ag-gallery [gallery]="gallery$ | async"></ag-gallery>
+</div>

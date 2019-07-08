@@ -7,6 +7,10 @@ export const agGalleriesAdapter: EntityAdapter<AgGallery> = createEntityAdapter<
 });
 
 export interface AgGalleriesState extends EntityState<AgGallery> {
+  isLoaded: boolean;
 }
 
-export const agGalleriesInitialState: AgGalleriesState = <AgGalleriesState>agGalleriesAdapter.getInitialState();
+export const agGalleriesInitialState: AgGalleriesState = {
+  ...agGalleriesAdapter.getInitialState(),
+  isLoaded: false
+};

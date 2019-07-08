@@ -1,10 +1,10 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { Dictionary } from "@ngrx/entity";
 
-import { agGalleriesAdapter } from "./ag-galleries.state";
+import { agGalleriesAdapter, AgGalleriesState } from "./ag-galleries.state";
 import { AgGallery, AgGalleryThumbnail } from "../../../../../../models";
 
-export const getGalleriesState = createFeatureSelector<AgGallery>('galleries');
+export const getGalleriesState = createFeatureSelector<AgGalleriesState>('galleries');
 
 export const {
   selectIds: selectGalleriesIds,
@@ -18,7 +18,8 @@ export const selectGalleriesPreviewData = createSelector(
   (galleries: AgGallery[]): AgGalleryThumbnail[] => galleries.map(gallery => ({
     id: gallery.id,
     header: gallery.name,
-    propHeader: gallery.propHeader,
+    propImgHeader: gallery.propImgHeader,
+    propContainerHeader: gallery.propContainerHeader,
     props: gallery.props,
     thumbnailImg: {
       name: gallery.thumbnailImgName,
@@ -28,8 +29,10 @@ export const selectGalleriesPreviewData = createSelector(
 );
 
 export const isNoGalleryLoaded = createSelector(
-  selectGalleriesIds,
-  (ids: number[]): boolean => !ids || !ids.length
+  getGalleriesState,
+  (state: AgGalleriesState): boolean => {
+    return !state || !state.isLoaded;
+  }
 );
 
 export const selectGalleryById = createSelector(

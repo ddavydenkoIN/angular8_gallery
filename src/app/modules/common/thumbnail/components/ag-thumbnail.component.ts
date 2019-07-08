@@ -12,4 +12,7 @@ export class AgThumbnailComponent {
 
   @Input()
   title: string;
+
+  @Input()
+  thumbnailUrl: string;
 }

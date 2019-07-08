@@ -1,21 +1,20 @@
 import { Injectable } from "@angular/core";
 import { select, Store } from "@ngrx/store";
-import { Dictionary, EntityState } from "@ngrx/entity";
 
 import { Observable } from "rxjs";
 
 import { loadGalleries } from "./ag-galleries.actions";
-import { AgGallery } from "../../../../../../models/index";
 import { isNoGalleryLoaded, selectGalleriesPreviewData, selectGalleryById } from './ag-galleries.selectors';
-import { AgGalleryThumbnail } from "../../../../../../models";
+import { AgGallery, AgGalleryThumbnail } from "../../../../../../models";
+import { AgState } from "../../../../../../root-store/state";
 
 @Injectable({providedIn: 'root'})
 export class AgGalleriesStoreService {
 
-  constructor(private store$: Store<Dictionary<AgGallery>>) {
+  constructor(private store$: Store<AgState>) {
   }
 
-  loadGalleries() {
+  loadGalleries(): void {
     this.store$.dispatch(loadGalleries());
   }
 
@@ -27,7 +26,7 @@ export class AgGalleriesStoreService {
     return this.store$.pipe(select(isNoGalleryLoaded));
   }
 
-  retrieveGalleryById(id: string) {
+  retrieveGalleryById(id: string): Observable<AgGallery> {
     return this.store$.pipe(select(selectGalleryById, id));
   }
 }

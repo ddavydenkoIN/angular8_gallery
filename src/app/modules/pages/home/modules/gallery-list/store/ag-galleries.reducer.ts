@@ -5,9 +5,11 @@ import { loadGalleriesSuccess } from "./ag-galleries.actions";
 
 const reducer = createReducer(
   agGalleriesInitialState,
-  on(loadGalleriesSuccess, (state, {galleries}) => {
-    return agGalleriesAdapter.addAll(galleries, state);
-  })
+  on(loadGalleriesSuccess, (state, {galleries}) => ({
+      ...agGalleriesAdapter.addAll(galleries, state),
+      isLoaded: true
+    })
+  )
 );
 
 export function agGalleriesReducer(state: AgGalleriesState | undefined, action: Action) {
