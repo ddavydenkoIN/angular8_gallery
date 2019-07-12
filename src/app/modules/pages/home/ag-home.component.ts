@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'ag-home',
@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class AgHomeComponent implements OnInit {
   thumbnails: any[];
 
+  isNavbarSticky: boolean;
+
   ngOnInit() {
     this.thumbnails = [
       {title: 'First', description: 'First Gallery'},
@@ -15,5 +17,14 @@ export class AgHomeComponent implements OnInit {
       {title: 'Third', description: 'Third Gallery'},
       {title: 'Forth', description: 'Forth Gallery'}
     ];
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(e) {
+    if (window.pageYOffset > 330) {
+      this.isNavbarSticky = true;
+    } else {
+      this.isNavbarSticky = false;
+    }
   }
 }

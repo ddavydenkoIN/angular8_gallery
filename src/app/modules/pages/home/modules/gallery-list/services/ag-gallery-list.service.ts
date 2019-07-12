@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 import { AgGalleriesStoreService } from "../store/ag-galleries-store.service";
-import { AgGallery, AgGalleryThumbnail } from "../../../../../../models";
+import { AgGallery, AgGalleryListThumbnail, AgGalleryProperties } from "../../../../../../models";
 
 @Injectable({providedIn: 'root'})
 export class AgGalleryListService {
@@ -14,7 +14,7 @@ export class AgGalleryListService {
     this.galleriesStoreService.loadGalleries();
   }
 
-  retrieveGalleries(): Observable<AgGalleryThumbnail[]> {
+  retrieveGalleries(): Observable<AgGalleryListThumbnail[]> {
     return this.galleriesStoreService.retrieveGalleriesList();
   }
 
@@ -22,7 +22,7 @@ export class AgGalleryListService {
     return this.galleriesStoreService.isNoGalleryLoaded();
   }
 
-  getGalleryById(id: string): Observable<AgGallery> {
-    return this.galleriesStoreService.retrieveGalleryById(id);
+  getGalleryProps(id: string): Observable<AgGalleryProperties> {
+    return this.galleriesStoreService.retrieveGalleryProps(id);
   }
 }

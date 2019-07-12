@@ -1,4 +1,5 @@
 import { AgNameId, AgNameValue, AgObject } from "../common";
+import { AgImageShape } from "../../enums/image-shape.enum";
 
 export interface AgGallery extends AgNameId<string, number> {
   propContainerHeader?: string;
@@ -6,6 +7,7 @@ export interface AgGallery extends AgNameId<string, number> {
   props: AgGalleryProperties;
   thumbnailImgName: string;
   thumbnailImgFolder: string;
+  isRandomSizeImages?: boolean;
 }
 
 export interface AgImg {
@@ -23,3 +25,12 @@ export interface AgGalleryStyles {
   img: AgObject;
 }
 
+export interface AgGalleryThumbnail {
+  shape: string;
+  url: string;
+}
+
+export interface AgImagesObject {
+  source: string;
+  urlSuffixes: string[];
+}

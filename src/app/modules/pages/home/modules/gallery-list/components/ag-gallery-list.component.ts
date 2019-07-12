@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs";
 import { filter, takeUntil } from "rxjs/operators";
 
-import { AgGalleryThumbnail } from "../../../../../../models";
+import { AgGalleryListThumbnail } from "../../../../../../models";
 import { AgGalleryListService } from "../services/ag-gallery-list.service";
 import { AgUnsubscribe } from "../../../../../../providers/abstract/ag-unsubscribe";
 
@@ -14,7 +14,7 @@ import { AgUnsubscribe } from "../../../../../../providers/abstract/ag-unsubscri
 })
 export class AgGalleryListComponent extends AgUnsubscribe implements OnInit {
 
-  galleriesList$: Observable<AgGalleryThumbnail[]>;
+  galleriesList$: Observable<AgGalleryListThumbnail[]>;
 
   constructor(private agGalleriesService: AgGalleryListService) {
     super();

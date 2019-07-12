@@ -4,8 +4,8 @@ import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 
 import { loadGalleries } from "./ag-galleries.actions";
-import { isNoGalleryLoaded, selectGalleriesPreviewData, selectGalleryById } from './ag-galleries.selectors';
-import { AgGallery, AgGalleryThumbnail } from "../../../../../../models";
+import { isNoGalleryLoaded, selectGalleriesPreviewData, selectGalleryProps } from './ag-galleries.selectors';
+import { AgGallery, AgGalleryListThumbnail, AgGalleryProperties } from "../../../../../../models";
 import { AgState } from "../../../../../../root-store/state";
 
 @Injectable({providedIn: 'root'})
@@ -18,7 +18,7 @@ export class AgGalleriesStoreService {
     this.store$.dispatch(loadGalleries());
   }
 
-  retrieveGalleriesList(): Observable<AgGalleryThumbnail[]> {
+  retrieveGalleriesList(): Observable<AgGalleryListThumbnail[]> {
     return this.store$.pipe(select(selectGalleriesPreviewData));
   }
 
@@ -26,7 +26,7 @@ export class AgGalleriesStoreService {
     return this.store$.pipe(select(isNoGalleryLoaded));
   }
 
-  retrieveGalleryById(id: string): Observable<AgGallery> {
-    return this.store$.pipe(select(selectGalleryById, id));
+  retrieveGalleryProps(id: string): Observable<AgGalleryProperties> {
+    return this.store$.pipe(select(selectGalleryProps, id));
   }
 }

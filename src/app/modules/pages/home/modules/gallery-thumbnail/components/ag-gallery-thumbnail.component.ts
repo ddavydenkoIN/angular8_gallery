@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { AgGalleryThumbnail } from "../../../../../../models";
+import { AgGalleryListThumbnail } from "../../../../../../models";
 import { GALLERY_LIST_THUMBNAILS_IMG_FOLDER } from "../../../../../../consts";
 
 @Component({
@@ -14,9 +14,8 @@ export class AgGalleryThumbnailComponent {
   index: number;
 
   @Input('model')
-  thumbnail: AgGalleryThumbnail;
+  thumbnail: AgGalleryListThumbnail;
 
-  isEven: boolean;
   imgLocation = GALLERY_LIST_THUMBNAILS_IMG_FOLDER;
 
   constructor(private router: Router) {

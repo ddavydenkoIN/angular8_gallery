@@ -8,13 +8,13 @@
     <div class="ag-gallery-thumbnail__description-header">{{thumbnail.header | translate}}</div>
     <div class="ag-gallery-thumbnail__description-props">
         <div>
-            <div class="ag-gallery-thumbnail__description-props-header">{{thumbnail.propImgHeader | translate}}</div>
+            <div class="ag-gallery-thumbnail__description-props-header">{{thumbnail.propContainerHeader | translate}}</div>
             <div class="ag-gallery-thumbnail__description-props-value" *ngFor="let prop of thumbnail.props.parent">
                 {{prop.name + ":" + prop.value}}
             </div>
         </div>
         <div>
-            <div class="ag-gallery-thumbnail__description-props-header">{{thumbnail.propContainerHeader | translate}}</div>
+            <div class="ag-gallery-thumbnail__description-props-header">{{thumbnail.propImgHeader | translate}}</div>
             <div class="ag-gallery-thumbnail__description-props-value"
                  *ngFor="let prop of thumbnail.props.child">
                 {{prop.name + ":" + prop.value}}

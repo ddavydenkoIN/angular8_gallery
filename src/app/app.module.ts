@@ -27,7 +27,7 @@ import { AgDataService } from "./providers/services/ag-data.service";
       AgTranslateModule,
 
       HttpClientModule,
-      HttpClientInMemoryWebApiModule.forRoot(AgDataService, {dataEncapsulation: false, passThruUnknownUrl: true, delay: 1000}),
+      HttpClientInMemoryWebApiModule.forRoot(AgDataService, {dataEncapsulation: false, passThruUnknownUrl: true, delay: 0}),
 
       StoreRouterConnectingModule.forRoot({stateKey: 'router'}),
       StoreModule.forRoot(agReducers, {

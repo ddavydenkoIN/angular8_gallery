@@ -2,9 +2,16 @@
     {{'PLAYGROUND.HEADER' | translate}}
     <a class="ag-playground__header-return-link" routerLink="/home" href="">return</a>
 </div>
-<div class="ag-playground__options">
+<div class="ag-playground__options" style="color: white">
     text
+    {{urls$ | async | json}}
 </div>
 <div class="ag-playground__gallery-container">
-    <ag-gallery [gallery]="gallery$ | async"></ag-gallery>
+    <ag-gallery [props]="props$ | async"
+                [loadCount]="2"
+                [urls]="urls$ | async"
+                [isRandomSized]="true"
+                [numberOfImagesOnStart]="initialNumberOfImages$ | async"
+                containerClass="ag-playground__gallery-container">
+    </ag-gallery>
 </div>

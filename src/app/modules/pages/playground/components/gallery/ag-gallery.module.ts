@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { AgGalleryComponent } from './components/ag-gallery.component';
 import { AgSharedModule } from "../../../../shared/ag-shared.module";
@@ -8,7 +9,8 @@ import { AgThumbnailModule } from "../../../../common/thumbnail/ag-thumbnail.mod
   declarations: [AgGalleryComponent],
   imports: [
     AgSharedModule,
-    AgThumbnailModule
+    AgThumbnailModule,
+    InfiniteScrollModule
   ],
   exports: [AgGalleryComponent]
 })

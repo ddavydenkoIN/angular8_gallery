@@ -1,2 +1,39 @@
 :host {
+  .ag-gallery {
+    &__container {
+      height: 70%;
+    }
+
+    &__img {
+      animation: fadeInBottomToTop 2s;
+      border: 1px solid black;
+      box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+      margin: 5px;
+
+      &.horizontal {
+        grid-column: span 2;
+      }
+
+      &.vertical {
+        grid-row: span 2;
+      }
+
+      &.square-big {
+        grid-row: span 2;
+        grid-column: span 2;
+      }
+    }
+  }
+}
+
+@keyframes fadeInBottomToTop {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 100%;
+    transform: translateY(0px);
+  }
 }

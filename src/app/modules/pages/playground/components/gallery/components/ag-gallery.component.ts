@@ -1,79 +1,57 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AgGallery } from "../../../../../../models/gallery";
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+
+import { AgGalleryProperties } from "../../../../../../models/gallery";
 import { AgOnChange } from "../../../../../../providers/decorators/ag-on-changes.decorator";
-import { AgPlaygroundService } from "../../../services/ag-playground.service";
+import { AgGalleryService } from "../services/ag-gallery.service";
 
 @Component({
   selector: 'ag-gallery',
   templateUrl: './ag-gallery.component.html',
-  styleUrls: ['./ag-gallery.component.less']
+  styleUrls: ['./ag-gallery.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [AgGalleryService]
 })
-export class AgGalleryComponent implements OnInit {
+export class AgGalleryComponent {
 
-  @AgOnChange(function(this: AgGalleryComponent, gallery: AgGallery) {
-    if (gallery) {
-      this.styles = this.agPlaygroundService.convertStyles(gallery.props);
-    }
+  @AgOnChange(function(this: AgGalleryComponent, props: AgGalleryProperties) {
+    this.styles = this.agGalleryService.convertStyles(props);
 
-    return gallery;
+    return props;
   })
   @Input()
-  gallery: AgGallery;
+  props: AgGalleryProperties;
+
+  @AgOnChange(function(this: AgGalleryComponent, urls: string[]) {
+    if (urls) {
+      this.shapes = this.agGalleryService.getRandomShapes(urls.length);
+      this.urlsToShow = urls.slice(0, this.agGalleryService.calculateBoundaryIndex(urls.length, this.numberOfImagesOnStart));
+    }
+    return urls;
+  })
+  @Input()
+  urls: string[];
+
+  @Input()
+  loadCount: number;
+
+  @Input()
+  containerClass: string;
+
+  @Input()
+  isRandomSized?: boolean = false;
+
+  @Input()
+  numberOfImagesOnStart?: number = 15;
 
   styles: any;
-  thumbnails = [
-    {
-      title: 'Uno',
-      description: 'Uno',
-      thumbnailUrl: 'https://unsplash.it/id/1015/300/300'
-    },
-    {
-      title: 'Dos',
-      description: 'Dos',
-      thumbnailUrl: 'https://unsplash.it/id/1016/300/300'
-    },
-    {
-      title: 'Tres',
-      description: 'Tres',
-      thumbnailUrl: 'https://unsplash.it/id/1020/300/300'
-    },
-    {
-      title: 'Quatro',
-      description: 'Quatro',
-      thumbnailUrl: 'https://unsplash.it/id/1015/300/300'
-    },
-    {
-      title: 'Cinco',
-      description: 'Cinco',
-      thumbnailUrl: 'https://unsplash.it/id/103/300/300'
-    },
-    {
-      title: 'Seis',
-      description: 'Seis',
-      thumbnailUrl: 'https://unsplash.it/id/1036/300/300'
-    },
-    {
-      title: 'Siete',
-      description: 'Siete',
-      thumbnailUrl: 'https://unsplash.it/id/1042/300/300'
-    },
+  shapes: string[];
+  urlsToShow: string[];
 
-    {
-      title: 'Ocho',
-      description: 'Ocho',
-      thumbnailUrl: 'https://unsplash.it/id/1048/300/300'
-    },
+  constructor(private agGalleryService: AgGalleryService) { }
 
-    {
-      title: 'Nueve',
-      description: 'Nueve',
-      thumbnailUrl: 'https://unsplash.it/id/1071/300/300'
-    },
-  ];
-
-  constructor(private agPlaygroundService: AgPlaygroundService) { }
-
-  ngOnInit() {
+  onScroll() {
+    this.urlsToShow = this.urlsToShow.concat(
+      this.urls.slice(this.urlsToShow.length - 1, (this.urlsToShow.length - 1) + this.loadCount)
+    );
   }
-
 }

@@ -15,7 +15,9 @@
       "TRADITIONAL_FLOATS": "Traditional Floats - broken",
       "GRID_TEMPLATE_ROWS_REPEAT": "Display GRID: Template rows Repeat.",
       "PROPS_CONTAINER": "Container props:",
-      "PROPS_IMG": "Image Props:"
+      "PROPS_IMG": "Image Props:",
+      "GRID_AUTO_FLOW_DENCE": "Display Grid: grid-auto-flow: dense;",
+      "GRID_REPEAT_AUTOFIT_MINMAX": "Display Grid: repeat(auto-fit, minmax(...))"
     }
   },
   "PLAYGROUND": {

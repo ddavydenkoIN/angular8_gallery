@@ -1,9 +1,10 @@
 @import "../../../../assets/styles/colors";
+@navbarHeight: 70px;
 
 :host {
   display: grid;
 
-  grid-template-rows: 400px 70px 40px auto;
+  grid-template-rows: 400px @navbarHeight 40px auto;
 
   ag-header {
     grid-row-start: 1;
@@ -11,6 +12,7 @@
 
     grid-column-start: 1;
     grid-column-end: 4;
+    background-color: #ag-colors[black];
   }
 
   ag-navbar {
@@ -19,6 +21,13 @@
     grid-column-start: 1;
     grid-column-end: 4;
     z-index: 5;
+
+    &.sticky {
+      position: fixed;
+      top: 0;
+      height: @navbarHeight;
+      width: 100%;
+    }
   }
 
   ag-search {
@@ -27,9 +36,16 @@
     grid-column-start: 3;
     grid-column-end: 4;
     z-index: 6;
+
+    &.sticky {
+      position: fixed;
+      top: 20px;
+      right: 10%;
+    }
   }
 
   .body {
+    min-height: 900px;
     height: fit-content;
 
     grid-row-start: 3;
@@ -41,29 +57,12 @@
   }
 }
 
-//@media(max-width: 1000px) {
-//  :host {
-//    grid-template-rows: 200px 70px 70px 300px;
-//
-//    .gallery {
-//      grid-row-start: 4;
-//      grid-row-end: 5;
-//    }
-//  }
-//}
-
 @media(max-width: 1100px) {
   :host {
-    grid-template-rows: 200px 70px 40px 300px;
+    grid-template-rows: 200px @navbarHeight 40px 300px;
 
     ag-search {
-      grid-row-start: 3;
-      grid-row-end: 4;
-
-      grid-column: 1 / span 3;
-
-      width: 100%;
-      height: 100%;
+      display: none;
     }
 
     .gallery {
