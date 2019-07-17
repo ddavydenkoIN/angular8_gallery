@@ -22,7 +22,7 @@ export class AgGalleryThumbnailComponent {
   }
 
 
-  openPlayground(galleryId: string): void {
+  openPlayground(galleryId: number): void {
     this.router.navigateByUrl('/playground/' + galleryId);
   }
 }

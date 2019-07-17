@@ -13,6 +13,7 @@ export class AgSearchComponent implements OnInit {
   constructor(private agStoreService: AgGalleriesStoreService) { }
 
   ngOnInit() {
+    this.consoleLog('OPENED!');
   }
 
   consoleLog(value: string) {

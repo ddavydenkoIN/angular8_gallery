@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from "@angular/common/http";
+import { MatIconModule } from "@angular/material";
 
 import { StoreRouterConnectingModule } from "@ngrx/router-store";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -17,11 +18,13 @@ import { AgTranslateModule } from "./modules/common/translate/ag-translate.modul
 import { agReducers, metaReducers } from "./root-store/reducers";
 import { agEffects } from "./root-store/effects";
 import { AgDataService } from "./providers/services/ag-data.service";
+import { LoadableModule } from 'ngx-loadable';
 
 @NgModule({
     imports: [
       BrowserModule,
       BrowserAnimationsModule,
+      MatIconModule,
 
       AgRoutingModule,
       AgTranslateModule,
@@ -42,6 +45,13 @@ import { AgDataService } from "./providers/services/ag-data.service";
       !environment.production ? StoreDevtoolsModule.instrument({
           name: 'Angular 8 Gallery'
       }) : [],
+      LoadableModule.forRoot({
+        appDir: 'src/app/',
+        fileMappings: {
+          search: 'src/app/modules/common/search/ag-search.module#AgSearchModule'
+        }
+      }),
+
     ],
     declarations: [
       AppComponent

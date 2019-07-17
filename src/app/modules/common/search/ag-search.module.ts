@@ -12,6 +12,7 @@ import { AgSharedModule } from "../../shared/ag-shared.module";
     FormsModule,
     MatButtonModule
   ],
-  exports: [AgSearchComponent]
+  bootstrap: [AgSearchComponent],
+  // exports: [AgSearchComponent],
 })
 export class AgSearchModule { }

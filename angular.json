@@ -30,7 +30,12 @@
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.less"
             ],
-            "scripts": []
+            "lazyModules": [
+              "src/app/modules/common/search/ag-search.module"
+            ],
+            "scripts": [
+              "./node_modules/hammerjs/hammer.min.js"
+            ]
           },
           "configurations": {
             "production": {
