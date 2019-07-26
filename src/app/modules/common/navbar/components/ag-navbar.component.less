@@ -4,14 +4,9 @@
 :host {
   background: rgba(204, 204, 204, 0.5);
 
-  display: grid;
-
-  grid-template-columns: 6fr 4fr;
+  display: inline-flex;
 
   .ag-tabs {
-    grid-column-start: 1;
-    grid-column-end: 2;
-
     padding-left: 100px;
 
     display: inline-flex;
@@ -38,6 +33,12 @@
     &__tab:hover {
       background-color: #171717;
     }
+  }
+
+  ag-loadable-search {
+    grid-column: 2;
+    width: 150px;
+
   }
 }
 

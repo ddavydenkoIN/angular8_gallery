@@ -6,7 +6,6 @@ import { AgHomeRoutingModule } from "./ag-home-routing.module";
 import { AgHeaderModule } from "../../common/header/ag-header.module";
 import { AgNavbarModule } from "../../common/navbar/ag-navbar.module";
 import { AgSharedModule } from "../../shared/ag-shared.module";
-import { AgLoadableSearchModule } from "../../common/loadable-search/ag-loadable-search.module";
 
 
 @NgModule({
@@ -16,8 +15,7 @@ import { AgLoadableSearchModule } from "../../common/loadable-search/ag-loadable
 
       MatIconModule,
       AgHeaderModule,
-      AgNavbarModule,
-      AgLoadableSearchModule
+      AgNavbarModule
     ],
     declarations: [AgHomeComponent]
 })

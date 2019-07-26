@@ -2,10 +2,8 @@
 <div class="ag-gallery-list__header">{{"HOME.GALLERIES.HEADER_NAME" | translate}}</div>
 
 <ng-container *ngIf="(galleriesList$ | async) as galleriesList">
-    <ng-container *ngFor="let galleryThumbnail of galleriesList; let ind = index">
-        <ag-gallery-thumbnail [index]="ind"
-                              [model]="galleryThumbnail">
-        </ag-gallery-thumbnail>
+    <ng-container *ngFor="let galleryThumbnail of galleriesList; let ind = index; trackBy: thumbnailById">
+        <ag-gallery-thumbnail [model]="galleryThumbnail" [index]="ind"></ag-gallery-thumbnail>
     </ng-container>
 </ng-container>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'ag-loadable-search',
@@ -8,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
 export class AgLoadableSearchComponent implements OnInit {
 
   showSearch = false;
+  isIconVisible = true;
 
-  constructor() { }
+  constructor(private el: ElementRef, private renderer: Renderer2) { }
 
   ngOnInit() {
+  }
+
+  expandHostElement() {
+    this.renderer.addClass(this.el.nativeElement, 'expanded');
+    this.isIconVisible = false;
+
+    setTimeout(() => this.showSearch = true, 1000);
   }
 
 }

@@ -1,6 +1,6 @@
-<mat-icon *ngIf="!showSearch"
+<mat-icon *ngIf="isIconVisible"
           [ngClass]="{'sticky': isNavbarSticky}"
-          (click)="showSearch = true"
+          (click)="expandHostElement()"
           (mouseenter)="searchModule.preload()">search</mat-icon>
 
 <ngx-loadable #searchModule

@@ -31,4 +31,7 @@ export class AgGalleryListComponent extends AgUnsubscribe implements OnInit {
     this.galleriesList$ = this.agGalleriesService.retrieveGalleries();
   }
 
+  thumbnailById(index: number, thumbnail: AgGalleryListThumbnail) {
+    return thumbnail.id;
+  }
 }

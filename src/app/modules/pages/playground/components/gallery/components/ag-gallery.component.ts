@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 import { AgGalleryProperties } from "../../../../../../models/gallery";
-import { AgOnChange } from "../../../../../../providers/decorators/ag-on-changes.decorator";
+import { AgOnChange } from "../../../../../../providers/decorators";
 import { AgGalleryService } from "../services/ag-gallery.service";
 
 @Component({

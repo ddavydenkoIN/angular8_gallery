@@ -9,7 +9,6 @@ export class AgHomeComponent implements OnInit {
   thumbnails: any[];
 
   isNavbarSticky: boolean;
-  show: false;
 
   ngOnInit() {
     this.thumbnails = [

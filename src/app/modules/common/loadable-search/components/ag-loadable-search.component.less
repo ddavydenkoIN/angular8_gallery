@@ -1,0 +1,35 @@
+@import '~src/assets/styles/colors';
+
+:host {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: rgba(44, 47, 52, 0.5);
+  color: #ag-colors[textPrimary];
+  z-index: 6;
+  width: 150px;
+  margin-left: auto;
+  transition: all 1s cubic-bezier(0.6, 1.11, 0.54, 1.25);
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  mat-icon {
+    font-size: 50px;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+  }
+}
+
+:host.expanded {
+  width: 400px !important;
+  ngx-loadable {
+    margin: auto;
+  }
+
+  &:hover {
+    opacity: 1 !important;
+  }
+}
