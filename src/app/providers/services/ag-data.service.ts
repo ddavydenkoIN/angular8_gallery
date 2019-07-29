@@ -22,7 +22,7 @@ export class AgDataService implements InMemoryDbService {
             {name: 'height', value: '200px'}
           ]
         },
-        thumbnailImgName: 'thumbnail.png',
+        thumbnailImgName: 'thumbnail.webp',
         thumbnailImgFolder: '/gallery-thumbnails'
       },
       {
@@ -39,7 +39,7 @@ export class AgDataService implements InMemoryDbService {
           ],
           child: []
         },
-        thumbnailImgName: 'thumbnail.png',
+        thumbnailImgName: 'thumbnail.webp',
         thumbnailImgFolder: '/gallery-thumbnails'
       },
       {
@@ -56,7 +56,7 @@ export class AgDataService implements InMemoryDbService {
           ],
           child: []
         },
-        thumbnailImgName: 'thumbnail.png',
+        thumbnailImgName: 'thumbnail.webp',
         thumbnailImgFolder: '/gallery-thumbnails'
       },
       {
@@ -75,7 +75,7 @@ export class AgDataService implements InMemoryDbService {
           child: []
         },
         isRandomSizeImages: true,
-        thumbnailImgName: 'thumbnail.png',
+        thumbnailImgName: 'thumbnail.webp',
         thumbnailImgFolder: '/gallery-thumbnails'
       },
 
