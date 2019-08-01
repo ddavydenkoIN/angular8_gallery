@@ -5,19 +5,23 @@ import { filter, takeUntil } from "rxjs/operators";
 
 import { AgGalleryListThumbnail } from "../../../../../../models";
 import { AgGalleryListService } from "../services/ag-gallery-list.service";
-import { AgUnsubscribe } from "../../../../../../providers/abstract/ag-unsubscribe";
+import { AgWordsHighlighter } from "../../../../../../providers/abstract/ag-words-highlighter";
+import { AgSearchService } from "../../../../../common/search/services/ag-search.service";
 
 @Component({
   selector: 'ag-gallery-list',
   templateUrl: './ag-gallery-list.component.html',
   styleUrls: ['./ag-gallery-list.component.less']
 })
-export class AgGalleryListComponent extends AgUnsubscribe implements OnInit {
+export class AgGalleryListComponent extends AgWordsHighlighter implements OnInit {
 
   galleriesList$: Observable<AgGalleryListThumbnail[]>;
 
-  constructor(private agGalleriesService: AgGalleryListService) {
-    super();
+  constructor(
+    private agGalleriesService: AgGalleryListService,
+    protected searchService: AgSearchService
+  ) {
+    super(searchService);
   }
 
   ngOnInit() {

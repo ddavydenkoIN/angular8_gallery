@@ -28,16 +28,14 @@ export class AgSearchComponent extends AgUnsubscribe implements OnInit {
     this.translateService.onLangChange()
       .pipe(takeUntil(this.destroy$))
       .subscribe((data: LangChangeEvent) => this.searchService.initSearch(data.lang));
-
-    this.consoleLog('OPENED!');
   }
 
-  consoleLog(value: string) {
-    this.agStoreService.loadGalleries();
-    console.log(value);
+  updateSearchValue(searchValue: string) {
+    this.searchService.updateSearchValue(searchValue);
   }
 
   clearSearchField() {
     this.searchValue = null;
+    this.searchService.updateSearchValue('');
   }
 }

@@ -8,4 +8,18 @@ body {
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+
+  &::ng-deep .highlight {
+      background-color: chartreuse;
+      color: darkslategrey;
+  }
+}
+.highlight {
+  background-color: chartreuse;
+  color: darkslategrey;
+
+  animation: fadeIn 1s;
+}

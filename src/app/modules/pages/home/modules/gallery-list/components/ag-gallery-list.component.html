@@ -1,5 +1,5 @@
 
-<div class="ag-gallery-list__header">{{"HOME.GALLERIES.HEADER_NAME" | translate}}</div>
+<div class="ag-gallery-list__header searchable">{{"HOME.GALLERIES.HEADER_NAME" | translate}}</div>
 
 <ng-container *ngIf="(galleriesList$ | async) as galleriesList">
     <ng-container *ngFor="let galleryThumbnail of galleriesList; let ind = index; trackBy: thumbnailById">

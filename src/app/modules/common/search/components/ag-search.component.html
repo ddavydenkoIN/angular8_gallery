@@ -2,6 +2,8 @@
         type="text"
         [(ngModel)]="searchValue"
         placeholder="{{'SEARCH.PLACEHOLDER' | translate}}"
+        (keyup.enter)="searchValue && updateSearchValue(searchValue)"
+        (keyup.esc)="searchValue && clearSearchField()"
 >
 
 <div class="ag-search__cross"
@@ -12,6 +14,6 @@
 <button class="ag-search__button"
         type="submit"
         [ngClass]="{'_disabled': !searchValue}"
-        (click)="consoleLog(searchValue)">
+        (click)="updateSearchValue(searchValue)">
     {{'SEARCH.BUTTON_NAME' | translate}}
 </button>

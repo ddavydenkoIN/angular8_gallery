@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-import { AgLanguagesEnum, LANGUAGE_ICONS_FOLDER } from "../../../../consts";
+import { AgLanguagesEnum } from "../../../../enums";
+import { LANGUAGE_ICONS_FOLDER } from "../../../../consts"
 import { AgTranslateService } from "../../translate/services/ag-translate.service";
 
 @Component({

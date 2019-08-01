@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 
 import { AgRestApiOptions } from "../../models";
 import { errorHandler } from "../error-handler";
-import { AgRestMethodEnum } from "../../consts";
+import { AgRestMethodEnum } from "../../enums";
 import { tap } from "rxjs/operators";
 
 @Injectable({

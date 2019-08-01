@@ -6,10 +6,14 @@
       "ROUTE_NAME": "About"
     },
     "TECHNOLOGY": {
-      "ROUTE_NAME": "Technology"
+      "ROUTE_NAME": "Technology",
+      "OBSERVABLES_HANDLING": "Observables handling:",
+      "LOCALIZATION": "Localization:",
+      "COMPONENTS_LIB": "Components lib:",
+      "INFINITE_SCROLL": "Infinite scroll:"
     },
     "GALLERIES": {
-      "HEADER_NAME": "list of galleries",
+      "HEADER_NAME": "list of galleries list of galleries",
       "ROUTE_NAME": "Galleries",
       "PROPS_USED": "Props used:",
       "TRADITIONAL_FLOATS": "Traditional Floats - broken",

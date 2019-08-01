@@ -14,7 +14,6 @@ import { AgSearchStoreService } from "./store/ag-search-store.service";
 
 @NgModule({
   declarations: [AgSearchComponent],
-  providers: [AgSearchService, AgSearchStoreService],
   imports: [
     AgSharedModule,
     FormsModule,

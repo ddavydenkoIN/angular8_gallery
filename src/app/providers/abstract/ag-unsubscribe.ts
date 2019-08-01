@@ -9,5 +9,4 @@ export class AgUnsubscribe implements OnDestroy {
     this.destroy$.next(true);
     this.destroy$.complete();
   }
-
 }

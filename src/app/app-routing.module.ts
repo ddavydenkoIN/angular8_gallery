@@ -11,7 +11,7 @@ const routes: Routes = [
     path: "playground/:id",
     loadChildren: () => import('./modules/pages/playground/ag-playground.module').then(mod => mod.AgPlaygroundModule)
   },
-  { path: '', pathMatch: 'full', redirectTo: '/home/galleries' },
+  { path: '', pathMatch: 'full', redirectTo: '/home/about' },
   { path: '**', loadChildren: () => import('./modules/pages/error-page/ag-error-page.module').then(mod => mod.AgErrorPageModule)}
 ];
 
