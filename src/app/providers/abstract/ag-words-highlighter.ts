@@ -84,7 +84,10 @@ function removeHighlight(el: HTMLElement, previousValue: string): string {
   }
 }
 
-function calcIndexArray(target: string, searchValue: string): number[] {
+function calcIndexArray(target: string, searchValue: string = ''): number[] {
+  if (searchValue === null) {
+    return [];
+  }
   const result = [];
   for (let i = 0; i < target.length; ++i) {
     if (target.substring(i, i + searchValue.length).toLowerCase() === searchValue.toLowerCase()) {

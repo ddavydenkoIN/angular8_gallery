@@ -1,7 +1,7 @@
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 
-import { takeUntil } from "rxjs/operators";
+import { pluck, takeUntil } from "rxjs/operators";
 
 import { AgHomeService } from "./services/ag-home.service";
 import { AgUnsubscribe } from "../../../providers/abstract/ag-unsubscribe";
@@ -26,7 +26,10 @@ export class AgHomeComponent extends AgUnsubscribe implements OnInit, OnDestroy 
 
   ngOnInit() {
     this.homeService.retrieveCurrentlyOpenedTab()
-      .pipe(takeUntil(this.destroy$))
+      .pipe(
+          takeUntil(this.destroy$),
+          pluck('name'),
+      )
       .subscribe((tabName: string) => this.router.navigateByUrl('/home/' + tabName.toLowerCase()));
   }
 

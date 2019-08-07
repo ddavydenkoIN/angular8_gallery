@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 
 import { AgHomeStoreService } from "../store/ag-home-store.service";
 import { AgSearchableTabs } from "../../../../enums";
+import { AgName } from "../../../../models/common/name.model";
 
 @Injectable()
 export class AgHomeService {
@@ -12,7 +13,7 @@ export class AgHomeService {
     private homeStoreService: AgHomeStoreService
   ) {}
 
-  retrieveCurrentlyOpenedTab(): Observable<string> {
+  retrieveCurrentlyOpenedTab(): Observable<AgName<string>> {
     return this.homeStoreService.retrieveCurrentlyOpenedTab();
   }
 

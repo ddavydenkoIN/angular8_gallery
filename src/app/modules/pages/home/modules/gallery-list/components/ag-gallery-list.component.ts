@@ -7,6 +7,8 @@ import { AgGalleryListThumbnail } from "../../../../../../models";
 import { AgGalleryListService } from "../services/ag-gallery-list.service";
 import { AgWordsHighlighter } from "../../../../../../providers/abstract/ag-words-highlighter";
 import { AgSearchService } from "../../../../../common/search/services/ag-search.service";
+import { AgSearchableTabs } from "../../../../../../enums";
+import { AgHomeService } from "../../../services/ag-home.service";
 
 @Component({
   selector: 'ag-gallery-list',
@@ -19,7 +21,8 @@ export class AgGalleryListComponent extends AgWordsHighlighter implements OnInit
 
   constructor(
     private agGalleriesService: AgGalleryListService,
-    protected searchService: AgSearchService
+    protected searchService: AgSearchService,
+    private homeService: AgHomeService
   ) {
     super(searchService);
   }
@@ -31,7 +34,7 @@ export class AgGalleryListComponent extends AgWordsHighlighter implements OnInit
         filter(isNoGalleryLoaded => isNoGalleryLoaded)
       ).subscribe(() => this.agGalleriesService.loadAllGalleries())
 
-
+    this.homeService.setCurrentlyOpenedTab(AgSearchableTabs.GALLERIES);
     this.galleriesList$ = this.agGalleriesService.retrieveGalleries();
   }
 

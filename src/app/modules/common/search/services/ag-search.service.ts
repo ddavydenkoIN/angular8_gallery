@@ -29,13 +29,21 @@ export class AgSearchService {
 
   getTabToRedirect(searchString: string, searchMap: AgObject): string {
     const entry = searchString && Object.entries(searchMap)
-      .find(([key, keyPhracePairs]: [string, AgObject]) => Object
-        .values(keyPhracePairs)
-        .some((phrace: string) => phrace.toLowerCase().includes(searchString.toLowerCase())));
+      .find(([keys, values]: [string, AgObject]) => this.findAppearence(values, searchString));
 
     return entry ? entry[0] : null;
   }
 
+  private findAppearence(map: AgObject, searchString: string): boolean {
+    return Object
+        .values(map)
+        .map((data: string | object) => {
+          return typeof data === 'string'
+              ? data.toLowerCase().includes(searchString.toLowerCase())
+              : this.findAppearence(data, searchString);
+        })
+        .some(value => !!value);
+  }
   getSearchValuePairs(): Observable<string[]> {
     return this.searchStoreService.retrieveSearchValuePair();
   }

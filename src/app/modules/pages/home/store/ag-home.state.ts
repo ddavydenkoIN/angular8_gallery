@@ -1,9 +1,12 @@
 import { AgSearchableTabs } from "../../../../enums";
+import { AgName } from "../../../../models/common/name.model";
 
 export interface AgHomeState {
-  currentlyOpenedTab: string | AgSearchableTabs;
+  currentlyOpenedTab: AgName<string | AgSearchableTabs>;
 }
 
 export const agHomeInitialState: AgHomeState = {
-  currentlyOpenedTab: AgSearchableTabs.ABOUT
+  currentlyOpenedTab: {
+    name: AgSearchableTabs.ABOUT
+  }
 };

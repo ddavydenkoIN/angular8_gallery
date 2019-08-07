@@ -6,7 +6,9 @@ import { updateCurrentTab } from "./ag-home.actions";
 const reducer = createReducer(
   agHomeInitialState,
   on(updateCurrentTab, (state, {tabName}) => ({
-      currentlyOpenedTab: tabName || state.currentlyOpenedTab
+      currentlyOpenedTab: {
+          name: tabName || state.currentlyOpenedTab.name
+      }
     })
   )
 );
