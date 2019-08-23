@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 
 import { Observable } from "rxjs";
-import { filter, take, tap } from "rxjs/operators";
+import { filter, map, take, takeUntil, withLatestFrom } from "rxjs/operators";
 
 import { AgGalleryListService } from "../../home/modules/gallery-list/services/ag-gallery-list.service";
-import { AgGallery, AgGalleryProperties } from "../../../../models";
+import { AgUserInputConfig, AgGalleryProperties } from "../../../../models";
 import { AgPlaygroundService } from "../services/ag-playground.service";
+import { AgUnsubscribe } from "../../../../providers/abstract/ag-unsubscribe";
 
 
 @Component({
@@ -14,16 +15,24 @@ import { AgPlaygroundService } from "../services/ag-playground.service";
   templateUrl: './ag-playground.component.html',
   styleUrls: ['./ag-playground.component.less']
 })
-export class AgPlaygroundComponent implements OnInit {
+export class AgPlaygroundComponent extends AgUnsubscribe implements OnInit, AfterViewInit {
 
   props$: Observable<AgGalleryProperties>;
   urls$: Observable<string[]>;
   initialNumberOfImages$: Observable<number>;
+  loadCount: number;
+  userInputConfig$: Observable<AgUserInputConfig>;
+  imgWidth: number;
+
+  @ViewChild('galleryContainer', null)
+  galleryContainer: ElementRef;
 
   constructor(private galleryListService: AgGalleryListService,
               private agPlaygroundService: AgPlaygroundService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+    super();
+  }
 
   ngOnInit() {
     this.galleryListService.isNoGalleryLoaded()
@@ -35,7 +44,17 @@ export class AgPlaygroundComponent implements OnInit {
     this.agPlaygroundService.loadAllImages();
 
     this.initialNumberOfImages$ = this.agPlaygroundService.retrieveInitialNumberOfImages();
-    this.props$ = this.galleryListService.getGalleryProps(this.route.snapshot.params['id']);
+    this.props$ = this.agPlaygroundService.retrieveJoinedGalleryConfig(this.route.snapshot.params['id']);
+
     this.urls$ = this.agPlaygroundService.retrieveAllImageUrls();
+    this.userInputConfig$ = this.agPlaygroundService.retrieveGalleryConfig();
+
+    this.agPlaygroundService.retrieveImgWidthNum()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((width: number) => this.imgWidth = width);
+  }
+
+  ngAfterViewInit() {
+    this.loadCount = this.agPlaygroundService.calculateLoadCount(this.galleryContainer, this.imgWidth);
   }
 }

@@ -25,6 +25,14 @@ export interface AgGalleryStyles {
   img: AgObject;
 }
 
+export interface AgUserInputConfig {
+  xInterval: string;
+  yInterval: string;
+  boxShadow: string;
+  minImgWidth: string;
+  rowHeight: string;
+}
+
 export interface AgGalleryThumbnail {
   shape: string;
   url: string;
@@ -33,4 +41,9 @@ export interface AgGalleryThumbnail {
 export interface AgImagesObject {
   source: string;
   urlSuffixes: string[];
+  extension: string;
+}
+
+export interface IPropConverter {
+  convertProperties: (any) => AgGalleryProperties;
 }

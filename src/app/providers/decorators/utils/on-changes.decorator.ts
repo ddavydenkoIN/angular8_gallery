@@ -1,4 +1,4 @@
-import { AgSimpleChange } from "../../models";
+import { AgSimpleChange } from "../../../models";
 
 export function AgOnChange<T = any>(callback: (value: T, simpleChange?: AgSimpleChange<T>) => void | T) {
   const cachedValueKey = Symbol();

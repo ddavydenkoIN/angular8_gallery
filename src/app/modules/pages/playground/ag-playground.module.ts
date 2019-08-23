@@ -10,6 +10,7 @@ import { AgGalleryModule } from "./components/gallery/ag-gallery.module";
 import { AgPlaygroundService } from "./services/ag-playground.service";
 import { agPlaygroundReducer } from "./store/ag-playground.reducer";
 import { AgPlaygroundEffects } from "./store/ag-playground.effects";
+import { AgUserInputToGalleryPropsConverter } from "./services/ag-user-input-to-gallery-props.converter";
 
 @NgModule({
   declarations: [AgPlaygroundComponent],
@@ -21,7 +22,8 @@ import { AgPlaygroundEffects } from "./store/ag-playground.effects";
     EffectsModule.forFeature([AgPlaygroundEffects])
   ],
   providers: [
-    AgPlaygroundService
+    AgPlaygroundService,
+    AgUserInputToGalleryPropsConverter
   ]
 })
 export class AgPlaygroundModule { }

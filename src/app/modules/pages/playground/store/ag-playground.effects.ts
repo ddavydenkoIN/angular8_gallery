@@ -15,9 +15,7 @@ export class AgPlaygroundEffects {
   loadImages = createEffect(() => this.actions$
     .pipe(
       ofType(loadAllImages),
-      tap(console.log),
       switchMap(action => this.httpService.get(AgRoutesEnum.LOAD_ALL_IMAGES, {})),
-      tap(console.log),
       map((images: AgImagesObject) => loadAllImagesSuccess({images}))
     )
   );
