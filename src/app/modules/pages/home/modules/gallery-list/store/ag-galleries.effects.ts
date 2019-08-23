@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 
+import { Action } from "@ngrx/store";
 import { map, switchMap } from "rxjs/operators";
 
 import { loadGalleries, loadGalleriesSuccess } from "./ag-galleries.actions";
@@ -16,7 +17,7 @@ export class AgGalleriesEffects {
   loadGalleries = createEffect(() => this.actions$
     .pipe(
       ofType(loadGalleries),
-      switchMap(action => this.httpService.get(AgRoutesEnum.LOAD_ALL_GALLERIES, {})),
+      switchMap((action: Action) => this.httpService.get(AgRoutesEnum.LOAD_ALL_GALLERIES, {})),
       map((galleries: AgGallery[]) => loadGalleriesSuccess({galleries}))
     )
   );

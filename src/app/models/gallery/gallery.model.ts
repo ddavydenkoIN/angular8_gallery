@@ -38,12 +38,6 @@ export interface AgGalleryThumbnail {
   url: string;
 }
 
-export interface AgImagesObject {
-  source: string;
-  urlSuffixes: string[];
-  extension: string;
-}
-
 export interface IPropConverter {
   convertProperties: (any) => AgGalleryProperties;
 }

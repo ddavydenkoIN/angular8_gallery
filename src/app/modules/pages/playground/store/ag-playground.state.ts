@@ -1,4 +1,5 @@
-import { AgUserInputConfig, AgImagesObject } from "../../../../models";
+import { AgUserInputConfig } from "../../../../models";
+import { AgImages } from "../../../../models/interface-class/ag-images.model";
 
 export interface AgPlaygroundState {
   images: AgImagesListState;
@@ -6,7 +7,7 @@ export interface AgPlaygroundState {
   galleryConfig: AgUserInputConfig;
 }
 
-export interface AgImagesListState extends AgImagesObject {
+export interface AgImagesListState extends AgImages {
   isLoaded?: boolean;
 }
 
