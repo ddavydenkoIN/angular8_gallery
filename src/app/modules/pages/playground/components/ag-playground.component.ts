@@ -2,10 +2,10 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { ActivatedRoute, Router } from "@angular/router";
 
 import { Observable } from "rxjs";
-import { filter, map, take, takeUntil, withLatestFrom } from "rxjs/operators";
+import { filter, take, takeUntil } from "rxjs/operators";
 
 import { AgGalleryListService } from "../../home/modules/gallery-list/services/ag-gallery-list.service";
-import { AgUserInputConfig, AgGalleryProperties } from "../../../../models";
+import { AgGalleryStyles, AgUserInputConfig } from "../../../../models";
 import { AgPlaygroundService } from "../services/ag-playground.service";
 import { AgUnsubscribe } from "../../../../providers/abstract/ag-unsubscribe";
 
@@ -17,7 +17,7 @@ import { AgUnsubscribe } from "../../../../providers/abstract/ag-unsubscribe";
 })
 export class AgPlaygroundComponent extends AgUnsubscribe implements OnInit, AfterViewInit {
 
-  props$: Observable<AgGalleryProperties>;
+  styles$: Observable<AgGalleryStyles>;
   urls$: Observable<string[]>;
   initialNumberOfImages$: Observable<number>;
   loadCount: number;
@@ -44,7 +44,7 @@ export class AgPlaygroundComponent extends AgUnsubscribe implements OnInit, Afte
     this.agPlaygroundService.loadAllImages();
 
     this.initialNumberOfImages$ = this.agPlaygroundService.retrieveInitialNumberOfImages();
-    this.props$ = this.agPlaygroundService.retrieveJoinedGalleryConfig(this.route.snapshot.params['id']);
+    this.styles$ = this.agPlaygroundService.retrieveJoinedGalleryConfig(this.route.snapshot.params['id']);
 
     this.urls$ = this.agPlaygroundService.retrieveAllImageUrls();
     this.userInputConfig$ = this.agPlaygroundService.retrieveGalleryConfig();

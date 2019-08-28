@@ -3,24 +3,23 @@
      [ngStyle]="{'background-image': 'url(' + thumbnailUrl + ')'}">
 </div>
 <div class="ag-gallery-thumbnail__description"
-     (click)="openPlayground(thumbnail.id)"
->
+     (click)="openPlayground(thumbnail.id)">
     <div class="ag-gallery-thumbnail__description-header searchable">{{thumbnail.header | translate}}</div>
     <div class="ag-gallery-thumbnail__description-props">
         <div>
             <div class="ag-gallery-thumbnail__description-props-header searchable">{{thumbnail.propContainerHeader | translate}}</div>
-            <div class="ag-gallery-thumbnail__description-props-value searchable" *ngFor="let prop of thumbnail.props.parent">
-                {{prop.name + ":" + prop.value}}
+            <div class="ag-gallery-thumbnail__description-props-value searchable"
+                 *ngFor="let key of objectKeys(thumbnail?.styles?.container)">
+                {{key + ":" + thumbnail?.styles?.container[key]}}
             </div>
         </div>
         <div>
             <div class="ag-gallery-thumbnail__description-props-header searchable">{{thumbnail.propImgHeader | translate}}</div>
             <div class="ag-gallery-thumbnail__description-props-value searchable"
-                 *ngFor="let prop of thumbnail.props.child">
-                {{prop.name + ":" + prop.value}}
+                 *ngFor="let key of objectKeys(thumbnail?.styles?.img)">
+                {{key + ":" + thumbnail?.styles?.img[key]}}
             </div>
         </div>
-
     </div>
 </div>
 <div class="ag-gallery-thumbnail__index searchable">{{index + 1}}</div>

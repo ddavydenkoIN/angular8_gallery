@@ -9,9 +9,7 @@ import { errorHandler } from "../error-handler";
 import { AgRestMethodEnum } from "../../enums";
 import { AgModelMapper } from "../abstract/model-mapper";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class AgHttpService {
 
   constructor(private http: HttpClient) { }
@@ -19,10 +17,23 @@ export class AgHttpService {
   get(url: string, options: AgRestApiOptions = {}, modelClass?: any): Observable<any> {
     return this.http.get(this.buildUrl(AgRestMethodEnum.GET, url, options.urlParameters), options.request)
       .pipe(
-        map(responce => modelClass ? new AgModelMapper(modelClass).map(responce) : responce),
-        tap(responce => console.log(this.buildUrl(AgRestMethodEnum.GET, url, options.urlParameters), responce)),
+        map(responce => this.mapResponce(responce, modelClass)),
         errorHandler(url)
       );
+  }
+
+
+  private mapResponce(responce: any | any[], modelClass: any): any {
+    if (!responce || !modelClass || typeof responce !== 'object') {
+      return responce;
+    }
+
+    if (modelClass) {
+      responce = responce.length
+        ? responce.map(item => new AgModelMapper(modelClass).map(item))
+        : new AgModelMapper(modelClass).map(responce);
+    }
+    return responce;
   }
 
   private buildUrl(method: AgRestMethodEnum, rawUrl: string, urlParams: Object): string {

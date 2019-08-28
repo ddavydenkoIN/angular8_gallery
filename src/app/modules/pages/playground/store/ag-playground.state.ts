@@ -1,5 +1,6 @@
 import { AgUserInputConfig } from "../../../../models";
 import { AgImages } from "../../../../models/interface-class/ag-images.model";
+import { AG_GALLERY_IMG_DEFAULT_WIDTH, DEFAULT_ANIMATION } from "../../../../consts";
 
 export interface AgPlaygroundState {
   images: AgImagesListState;
@@ -15,11 +16,13 @@ export const agPlaygroundInitialState: AgPlaygroundState = {
   images: null,
   initialNumberOfImages: 15,
   galleryConfig: {
-    xInterval: "10px",
-    yInterval: "10px",
-    boxShadow: 'box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5)',
-    minImgWidth: "200px",
-    rowHeight: "200px"
+    xInterval: "15px",
+    yInterval: "15px",
+    boxShadow: '1px 3px 8px rgba(0, 0, 0, 0.5)',
+    minImgWidth: AG_GALLERY_IMG_DEFAULT_WIDTH + 'px',
+    rowHeight: "200px",
+    animationDuration: '1s',
+    animationKeyframe: DEFAULT_ANIMATION
   }
 };
 

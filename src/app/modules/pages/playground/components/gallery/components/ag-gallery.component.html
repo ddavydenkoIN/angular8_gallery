@@ -1,5 +1,5 @@
 <div class="ag-gallery__container" *ngIf="loadCount"
-    [ngStyle]="styles?.container"
+     [ngStyle]="styles?.container"
      infiniteScroll
      [infiniteScrollDistance]="1"
      [infiniteScrollThrottle]="20"
@@ -8,12 +8,14 @@
      (scrolled)="onScroll()"
 >
     <ng-container *ngFor="let url of urlsToShow; let i = index">
-        <div class="ag-gallery__img"
-             [style.background-image]="'url(' + url + ')'"
-             [style.background-size]="'cover'"
-             [style.background-position]="'center'"
-             [ngClass]="isRandomSized ? shapes[i] : null"
-             [ngStyle]="styles?.img">
-        </div>
+        <ag-image class="ag-gallery__img"
+            [url]="url"
+            [borderRadius]="styles?.img?.borderRadius"
+            [boxShadow]="styles?.img?.boxShadow"
+            [animationDuration]="styles?.img?.animationDuration"
+            [animationKeyframe]="styles?.img?.animationKeyframe"
+            [filter]="styles?.img?.filter"
+            [ngClass]="isRandomSized ? shapes[i] : null">
+        </ag-image>
     </ng-container>
 </div>

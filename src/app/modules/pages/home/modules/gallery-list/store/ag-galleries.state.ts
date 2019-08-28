@@ -1,4 +1,4 @@
-import { createEntityAdapter, Dictionary, EntityAdapter, EntityState } from "@ngrx/entity";
+import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
 
 import { AgGallery } from "../../../../../../models";
 

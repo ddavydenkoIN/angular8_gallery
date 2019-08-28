@@ -7,7 +7,7 @@
     {{urls$ | async | json}}
 </div>
 <div class="ag-playground__gallery-container" #galleryContainer>
-    <ag-gallery [props]="props$ | async"
+    <ag-gallery [styles]="styles$ | async"
                 [loadCount]="loadCount"
                 [urls]="urls$ | async"
                 [isRandomSized]="true"

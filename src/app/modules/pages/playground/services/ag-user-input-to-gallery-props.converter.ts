@@ -1,34 +1,37 @@
-import { AgGalleryProperties, AgUserInputConfig, IPropConverter } from "../../../../models/gallery";
-import { AgNameValue } from "../../../../models/common";
+import { AgContainerStyles, AgGalleryStyles, AgUserInputConfig, IPropConverter } from "../../../../models/gallery";
+import { AgObject } from "../../../../models/common";
+import { AgImgStyles } from "../../../../models/img";
 
-const ContainerPropsMap = new Map([
+const ContainerStylesMap = new Map([
   ['rowHeight', 'grid-auto-rows'],
   ['xInterval', 'grid-column-gap'],
   ['yInterval', 'grid-row-gap']
 ]);
 
-const ImgPropsMap = new Map([
-  ['boxShadow', 'box-shadow']
+const ImgStylesMap = new Map([
+  ['animationDuration', 'animationDuration'],
+  ['animationKeyframe', 'animationKeyframe'],
+  ['borderRadius', 'borderRadius'],
+  ['boxShadow', 'boxShadow'],
+  ['filter', 'filter']
 ]);
 
 export class AgUserInputToGalleryPropsConverter implements IPropConverter {
 
-  public convertProperties(props: AgUserInputConfig): AgGalleryProperties {
+  public convertProperties(props: AgUserInputConfig): AgGalleryStyles {
     return {
-      parent: this.convert(props, ContainerPropsMap),
-      child: this.convert(props, ImgPropsMap)
+      container: <AgContainerStyles>this.convert(props, ContainerStylesMap),
+      img: <AgImgStyles>this.convert(props, ImgStylesMap)
     };
   }
 
-  private convert(inputProps: AgUserInputConfig, propsMap: Map<string, string>): AgNameValue[] {
+  private convert(inputProps: AgUserInputConfig, propsMap: Map<string, string>): AgObject {
     return Object
-      .entries(inputProps)
-      .filter(([key, value]: [string, string]) => propsMap.has(key))
-      .map(([key, value]: [string, string]) => {
-        return {
-          name: propsMap.get(key),
-          value: value
-        };
-      });
+      .keys(inputProps)
+      .filter((key: string) => propsMap.has(key))
+      .reduce((acc: AgObject, curr: string) => ({
+        ...acc,
+        [propsMap.get(curr)]: inputProps[curr]
+      }), {});
   }
 }

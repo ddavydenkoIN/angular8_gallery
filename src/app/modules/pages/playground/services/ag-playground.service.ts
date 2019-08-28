@@ -5,7 +5,7 @@ import { map, withLatestFrom } from "rxjs/operators";
 
 import { AgPlaygroundStoreService } from "../store/ag-playground-store.service";
 import { AG_GALLERY_IMG_DEFAULT_WIDTH } from "../../../../consts";
-import { AgUserInputConfig, AgGalleryProperties } from "../../../../models";
+import { AgUserInputConfig, AgGalleryStyles } from "../../../../models";
 import { AgGalleryListService } from "../../home/modules/gallery-list/services/ag-gallery-list.service";
 import { AgGalleryPropsAdapter } from "../components/gallery/services/ag-gallery-props.adapter";
 import { AgUserInputToGalleryPropsConverter } from "./ag-user-input-to-gallery-props.converter";
@@ -37,15 +37,15 @@ export class AgPlaygroundService {
     return this.agPlaygroundStoreService.retrieveGalleryConfig();
   }
 
-  retrieveJoinedGalleryConfig(id: string): Observable<AgGalleryProperties> {
+  retrieveJoinedGalleryConfig(id: string): Observable<AgGalleryStyles> {
   return this.retrieveGalleryConfig()
     .pipe(
       withLatestFrom(this.galleryListService.getGalleryProps(id)),
-      map(([userInput, galleryConf]: [AgUserInputConfig, AgGalleryProperties]): AgGalleryProperties => {
+      map(([userInput, galleryConf]: [AgUserInputConfig, AgGalleryStyles]): AgGalleryStyles => {
         const convertedUserProps =  new AgGalleryPropsAdapter(new AgUserInputToGalleryPropsConverter()).convert(userInput);
         return {
-          parent: [...galleryConf.parent, ...convertedUserProps.parent],
-          child: [...galleryConf.child, ... convertedUserProps.child]
+          container: {...galleryConf.container, ...convertedUserProps.container},
+          img: {...galleryConf.img, ...convertedUserProps.img}
         };
       })
     );

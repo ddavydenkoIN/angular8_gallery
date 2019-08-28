@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { DomSanitizer } from "@angular/platform-browser";
 
-import { AgGalleryProperties } from "../../../../../../models/gallery";
+import { AgGalleryStyles } from "../../../../../../models/gallery";
 import { AgOnChange } from "../../../../../../providers/decorators";
 import { AgGalleryService } from "../services/ag-gallery.service";
 
@@ -12,14 +13,8 @@ import { AgGalleryService } from "../services/ag-gallery.service";
   providers: [AgGalleryService]
 })
 export class AgGalleryComponent {
-
-  @AgOnChange(function(this: AgGalleryComponent, props: AgGalleryProperties) {
-    this.styles = this.agGalleryService.convertStyles(props);
-
-    return props;
-  })
   @Input()
-  props: AgGalleryProperties;
+  styles: AgGalleryStyles;
 
   @AgOnChange(function(this: AgGalleryComponent, urls: string[]) {
     if (urls) {
@@ -43,11 +38,11 @@ export class AgGalleryComponent {
   @Input()
   numberOfImagesOnStart?: number = 15;
 
-  styles: any;
   shapes: string[];
   urlsToShow: string[];
 
-  constructor(private agGalleryService: AgGalleryService) { }
+  constructor(private agGalleryService: AgGalleryService,
+              private sanitizer: DomSanitizer) { }
 
   onScroll() {
     this.urlsToShow = this.urlsToShow.concat(

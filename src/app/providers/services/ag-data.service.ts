@@ -13,14 +13,14 @@ export class AgDataService implements InMemoryDbService {
         name: 'HOME.GALLERIES.TRADITIONAL_FLOATS',
         propContainerHeader: 'HOME.GALLERIES.PROPS_CONTAINER',
         propImgHeader: 'HOME.GALLERIES.PROPS_IMG',
-        props: {
-          parent: [],
-          child: [
-            {name: 'float', value: 'left'},
-            {name: 'width', value: '24%'},
-            {name: 'margin', value: '5px'},
-            {name: 'height', value: '200px'}
-          ]
+        styles: {
+          container: {},
+          img: {
+            float: 'left',
+            width: '24%',
+            margin: '5px',
+            height: '200px'
+          }
         },
         thumbnailImgName: 'thumbnail.webp',
         thumbnailImgFolder: '/gallery/thumbnails'
@@ -30,14 +30,14 @@ export class AgDataService implements InMemoryDbService {
         name: 'HOME.GALLERIES.GRID_TEMPLATE_ROWS_REPEAT',
         propContainerHeader: 'HOME.GALLERIES.PROPS_CONTAINER',
         propImgHeader: 'HOME.GALLERIES.PROPS_IMG',
-        props: {
-          parent: [
-            {name: 'display', value: 'grid'},
-            {name: 'grid-template-columns', value: 'repeat(5, 1fr)'},
-            {name: 'grid-auto-rows', value: '200px'},
-            {name: 'grid-row-gap', value: '10px'},
-          ],
-          child: []
+        styles: {
+          container: {
+            display: 'grid',
+            'grid-template-columns': 'repeat(5, 1fr)',
+            'grid-auto-rows': '200px',
+            'grid-row-gap': '10px'
+          },
+          img: {}
         },
         thumbnailImgName: 'thumbnail.webp',
         thumbnailImgFolder: '/gallery/thumbnails'
@@ -47,14 +47,14 @@ export class AgDataService implements InMemoryDbService {
         name: 'HOME.GALLERIES.GRID_REPEAT_AUTOFIT_MINMAX',
         propContainerHeader: 'HOME.GALLERIES.PROPS_CONTAINER',
         propImgHeader: 'HOME.GALLERIES.PROPS_IMG',
-        props: {
-          parent: [
-            {name: 'display', value: 'grid'},
-            {name: 'grid-template-columns', value: 'repeat(auto-fit, minmax(200px, 1fr))'},
-            {name: 'grid-auto-rows', value: '200px'},
-            {name: 'grid-row-gap', value: '10px'},
-          ],
-          child: []
+        styles: {
+          container: {
+            display: 'grid',
+            'grid-template-columns': 'repeat(auto-fit, minmax(200px, 1fr))',
+            'grid-auto-rows': '200px',
+            'grid-row-gap': '10px'
+          },
+          img: {}
         },
         thumbnailImgName: 'thumbnail.webp',
         thumbnailImgFolder: '/gallery/thumbnails'
@@ -64,15 +64,17 @@ export class AgDataService implements InMemoryDbService {
         name: 'HOME.GALLERIES.GRID_AUTO_FLOW_DENCE',
         propContainerHeader: 'HOME.GALLERIES.PROPS_CONTAINER',
         propImgHeader: 'HOME.GALLERIES.PROPS_IMG',
-        props: {
-          parent: [
-            {name: 'display', value: 'grid'},
-            {name: 'grid-template-columns', value: 'repeat(auto-fit, minmax(200px, 1fr))'},
-            {name: 'grid-auto-rows', value: '300px'},
-            {name: 'grid-auto-flow', value: 'dense'},
-            {name: 'grid-gap', value: '10px'}
-          ],
-          child: []
+        styles: {
+          container: {
+            display: 'grid',
+            'grid-template-columns': 'repeat(auto-fit, minmax(200px, 1fr))',
+            'grid-auto-flow': 'dense',
+            'grid-auto-rows': '200px',
+            'grid-row-gap': '10px'
+          },
+          img: {
+            filter: 'grayscale(1)'
+          }
         },
         isRandomSizeImages: true,
         thumbnailImgName: 'thumbnail.webp',
@@ -80,15 +82,6 @@ export class AgDataService implements InMemoryDbService {
       }
     ];
 
-    // const images = {
-    //   source: 'https://unsplash.it/id/',
-    //   urlSuffixes: ['1015/400/400', '1016/400/400', '1020/400/400', '1015/400/400', '103/400/400', '1036/400/400', '1042/400/400', '1048/400/400', '1071/400/400',
-    //     '1084/400/400', '109/400/400', '11/400/400', '110/400/400', '111/400/400', '112/400/400', '113/400/400', '114/400/400', '115/400/400',
-    //     '116/400/400', '117/400/400', '119/400/400', '12/400/400', '123/400/400', '121/400/400', '124/400/400', '128/400/400', '129/400/400',
-    //     '13/400/400', '131/400/400', '132/400/400', '133/400/400', '134/400/400', '137/400/400', '139/400/400', '14/400/400', '15/400/400',
-    //     '147/400/400', '152/400/400', '155/400/400', '159/400/400', '160/400/400', '169/400/400', '171/400/400', '175/400/400', '174/400/400'
-    //   ]
-    // }
     const images = {
       sourceFolder: '/assets/img/gallery/pics/',
       urlSuffixes: ["1", "2", "3", "4", "5", "6", "7", "8",

@@ -1,10 +1,11 @@
-import { AgNameId, AgNameValue, AgObject } from "../common";
-import { AgImageShape } from "../../enums/image-shape.enum";
+import { AgNameId } from "../common";
+import { AgName } from "../common/name.model";
+import { AgImgStyles } from "../img";
 
 export interface AgGallery extends AgNameId<string, number> {
   propContainerHeader?: string;
   propImgHeader?: string;
-  props: AgGalleryProperties;
+  styles: AgGalleryStyles;
   thumbnailImgName: string;
   thumbnailImgFolder: string;
   isRandomSizeImages?: boolean;
@@ -15,14 +16,16 @@ export interface AgImg {
   folder: string;
 }
 
-export interface AgGalleryProperties {
-  parent: AgNameValue[];
-  child: AgNameValue[];
+export interface AgGalleryStyles {
+  container: AgContainerStyles;
+  img: AgImgStyles;
 }
 
-export interface AgGalleryStyles {
-  container: AgObject;
-  img: AgObject;
+export interface AgContainerStyles {
+  display: string;
+  'grid-template-columns': string;
+  'grid-auto-rows': string;
+  'grid-row-gap': string;
 }
 
 export interface AgUserInputConfig {
@@ -31,6 +34,15 @@ export interface AgUserInputConfig {
   boxShadow: string;
   minImgWidth: string;
   rowHeight: string;
+  animationClass?: string;
+  animationDuration?: string;
+  animationKeyframe?: string;
+  borderRadius?: string;
+  filter?: string;
+}
+
+export interface AgAnimationConfig extends AgName<string> {
+  duration: string;
 }
 
 export interface AgGalleryThumbnail {
@@ -39,5 +51,5 @@ export interface AgGalleryThumbnail {
 }
 
 export interface IPropConverter {
-  convertProperties: (any) => AgGalleryProperties;
+  convertProperties: (any) => AgGalleryStyles;
 }

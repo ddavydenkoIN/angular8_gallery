@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
 import { AgGalleriesStoreService } from "../store/ag-galleries-store.service";
-import { AgGallery, AgGalleryListThumbnail, AgGalleryProperties } from "../../../../../../models";
+import { AgGalleryListThumbnail, AgGalleryStyles } from "../../../../../../models";
 
 @Injectable({providedIn: 'root'})
 export class AgGalleryListService {
@@ -22,7 +22,7 @@ export class AgGalleryListService {
     return this.galleriesStoreService.isNoGalleryLoaded();
   }
 
-  getGalleryProps(id: string): Observable<AgGalleryProperties> {
+  getGalleryProps(id: string): Observable<AgGalleryStyles> {
     return this.galleriesStoreService.retrieveGalleryProps(id);
   }
 }

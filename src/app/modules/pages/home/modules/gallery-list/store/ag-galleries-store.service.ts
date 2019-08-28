@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 
 import { loadGalleries } from "./ag-galleries.actions";
 import { isNoGalleryLoaded, selectGalleriesPreviewData, selectGalleryProps } from './ag-galleries.selectors';
-import { AgGallery, AgGalleryListThumbnail, AgGalleryProperties } from "../../../../../../models";
+import { AgGallery, AgGalleryListThumbnail, AgGalleryStyles } from "../../../../../../models";
 import { AgState } from "../../../../../../root-store/state";
 
 @Injectable({providedIn: 'root'})
@@ -26,7 +26,7 @@ export class AgGalleriesStoreService {
     return this.store$.pipe(select(isNoGalleryLoaded));
   }
 
-  retrieveGalleryProps(id: string): Observable<AgGalleryProperties> {
+  retrieveGalleryProps(id: string): Observable<AgGalleryStyles> {
     return this.store$.pipe(select(selectGalleryProps, id));
   }
 }

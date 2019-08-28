@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
+
+import { Action } from "@ngrx/store";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { map, switchMap } from "rxjs/operators";
+import { Observable } from "rxjs";
 
 import { AgHttpService } from "../../../../providers/services/ag-http.service";
 import { loadAllImages, loadAllImagesSuccess } from "./ag-playground.actions";
 import { AgRoutesEnum } from "../../../../enums";
 import { AgImages } from "../../../../models/interface-class";
-import { Observable } from "rxjs";
-import { Action } from "@ngrx/store";
 
 @Injectable()
 export class AgPlaygroundEffects {

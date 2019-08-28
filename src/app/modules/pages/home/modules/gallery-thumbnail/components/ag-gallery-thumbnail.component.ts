@@ -26,6 +26,7 @@ export class AgGalleryThumbnailComponent {
   thumbnail: AgGalleryListThumbnail;
 
   thumbnailUrl: string;
+  objectKeys = Object.keys;
 
   constructor(private router: Router) {
   }
