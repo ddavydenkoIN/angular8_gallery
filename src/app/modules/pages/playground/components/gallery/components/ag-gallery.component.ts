@@ -4,6 +4,7 @@ import { DomSanitizer } from "@angular/platform-browser";
 import { AgGalleryStyles } from "../../../../../../models/gallery";
 import { AgOnChange } from "../../../../../../providers/decorators";
 import { AgGalleryService } from "../services/ag-gallery.service";
+import { AgUrlId } from "../../../../../../models/common";
 
 @Component({
   selector: 'ag-gallery',
@@ -41,12 +42,15 @@ export class AgGalleryComponent {
   shapes: string[];
   urlsToShow: string[];
 
-  constructor(private agGalleryService: AgGalleryService,
-              private sanitizer: DomSanitizer) { }
+  constructor(private agGalleryService: AgGalleryService) { }
 
   onScroll() {
     this.urlsToShow = this.urlsToShow.concat(
       this.urls.slice(this.urlsToShow.length - 1, (this.urlsToShow.length - 1) + this.loadCount)
     );
+  }
+
+  onImgClick(event: AgUrlId<number>) {
+
   }
 }

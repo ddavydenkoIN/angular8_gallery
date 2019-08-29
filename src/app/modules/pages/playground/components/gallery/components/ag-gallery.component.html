@@ -10,12 +10,14 @@
     <ng-container *ngFor="let url of urlsToShow; let i = index">
         <ag-image class="ag-gallery__img"
             [url]="url"
+            [id]="i"
             [borderRadius]="styles?.img?.borderRadius"
             [boxShadow]="styles?.img?.boxShadow"
             [animationDuration]="styles?.img?.animationDuration"
             [animationKeyframe]="styles?.img?.animationKeyframe"
             [filter]="styles?.img?.filter"
-            [ngClass]="isRandomSized ? shapes[i] : null">
+            [ngClass]="isRandomSized ? shapes[i] : null"
+            (onImgClick)="onImgClick($event)">
         </ag-image>
     </ng-container>
 </div>

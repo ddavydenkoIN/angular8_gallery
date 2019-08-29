@@ -6,6 +6,6 @@
     [style.border-radius]="borderRadius"
     [style.animation-duration]="animationDuration"
     [style.filter]="filter | safe: securityType.STYLE"
-    [style.animation-name]="animationKeyframe">
+    [style.animation-name]="animationKeyframe"
+    (click)="expandImg()">
 </div>
-

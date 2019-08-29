@@ -1,7 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, HostBinding, HostListener, Input, Output } from '@angular/core';
 
-import { AgOnChange } from "../../../../../../providers/decorators/utils";
-import { AgGalleryListThumbnail } from "../../../../../../models/gallery";
 import { AgBypassSecurityType } from "../../../../../../enums";
 
 @Component({
@@ -12,6 +10,9 @@ import { AgBypassSecurityType } from "../../../../../../enums";
 export class AgImageComponent {
   @Input()
   url: string;
+
+  @Input()
+  id: any;
 
   @Input()
   borderRadius?: string;
@@ -28,5 +29,16 @@ export class AgImageComponent {
   @Input()
   filter: string;
 
+  @Output()
+  onImgClick = new EventEmitter();
+
+
   securityType = AgBypassSecurityType;
+
+  expandImg() {
+    this.onImgClick.emit({
+      id: this.id,
+      url: this.url
+    });
+  }
 }
