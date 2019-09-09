@@ -1,0 +1,20 @@
+@import '~src/assets/styles/colors';
+
+.ag-playground-form {
+  padding: 25px;
+
+  &__interval {
+    &-field {
+      width: 75px;
+    }
+
+    &-field:first-child {
+      margin-right: 40px;
+    }
+  }
+  &::ng-deep {
+    .mat-form-field-label {
+      color: #ag-colors[textSecondary];
+    }
+  }
+}

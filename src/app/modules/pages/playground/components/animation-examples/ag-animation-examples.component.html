@@ -1,0 +1,15 @@
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>Animation</mat-panel-title>
+            <mat-panel-description>floatInBottomToTop</mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <span class="ag-animation-examples__item" *ngFor="let animation of animationList"
+            [ngStyle]="{'animation-name': animation, 'animation-duration': '1s', 'animation-iteration-count': 'infinite'}"
+            (click)="setAnimation(animation)">
+            {{animation}}
+        </span>
+
+    </mat-expansion-panel>
+</mat-accordion>

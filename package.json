@@ -30,6 +30,7 @@
     "@ngx-translate/core": "^11.0.1",
     "@ngx-translate/http-loader": "^4.0.0",
     "angular-in-memory-web-api": "^0.8.0",
+    "angular-imask": "4.0.0",
     "hammerjs": "^2.0.8",
     "ngx-infinite-scroll": "^7.2.0",
     "ngx-loadable": "^1.0.10",

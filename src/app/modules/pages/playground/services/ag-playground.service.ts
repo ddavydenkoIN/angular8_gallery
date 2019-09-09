@@ -51,6 +51,10 @@ export class AgPlaygroundService {
     );
   }
 
+  updateUserInput(userInput: AgUserInputConfig): void {
+    this.agPlaygroundStoreService.updateUserInputModel(userInput);
+  }
+
   retrieveImgWidthNum(): Observable<number> {
     return this.agPlaygroundStoreService.retrieveImgWidth()
       .pipe(

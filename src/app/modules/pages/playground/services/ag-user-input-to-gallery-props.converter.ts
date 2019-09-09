@@ -5,7 +5,8 @@ import { AgImgStyles } from "../../../../models/img";
 const ContainerStylesMap = new Map([
   ['rowHeight', 'grid-auto-rows'],
   ['xInterval', 'grid-column-gap'],
-  ['yInterval', 'grid-row-gap']
+  ['yInterval', 'grid-row-gap'],
+  ['minImgWidth', 'grid-template-columns']
 ]);
 
 const ImgStylesMap = new Map([

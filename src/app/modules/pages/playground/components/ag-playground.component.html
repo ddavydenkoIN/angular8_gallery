@@ -3,8 +3,9 @@
     <a class="ag-playground__header-return-link" routerLink="/home" href="">return</a>
 </div>
 <div class="ag-playground__options" style="color: white">
-    text
-    {{urls$ | async | json}}
+    <ag-playground-form>
+
+    </ag-playground-form>
 </div>
 <div class="ag-playground__gallery-container" #galleryContainer>
     <ag-gallery [styles]="styles$ | async"

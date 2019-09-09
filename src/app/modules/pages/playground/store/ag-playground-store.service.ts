@@ -5,8 +5,8 @@ import { Observable } from "rxjs";
 
 import { AgUserInputConfig } from "../../../../models";
 import { AgPlaygroundState } from "./ag-playground.state";
-import { loadAllImages } from "./ag-playground.actions";
-import { retrieveAllImageUrls, retrieveInitialGalleryConfig, retrieveInitialNumberOfImages, retrieveImgWidth } from "./ag-playground.selectors";
+import { loadAllImages, updateUserInputModel } from "./ag-playground.actions";
+import { retrieveAllImageUrls, retrieveImgWidth, retrieveInitialGalleryConfig, retrieveInitialNumberOfImages } from "./ag-playground.selectors";
 
 @Injectable({providedIn: 'root'})
 export class AgPlaygroundStoreService {
@@ -29,6 +29,9 @@ export class AgPlaygroundStoreService {
     return this.store$.select(retrieveInitialGalleryConfig);
   }
 
+  updateUserInputModel(userInput: AgUserInputConfig): void {
+    this.store$.dispatch(updateUserInputModel(userInput));
+  }
   retrieveImgWidth(): Observable<string> {
     return this.store$.select(retrieveImgWidth);
   }

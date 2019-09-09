@@ -1,0 +1,51 @@
+<div>
+    <form [formGroup]="userInputForm"
+          (ngSubmit)="submit()"
+          class="ag-playground-form">
+        <div class="ag-playground-form__interval">
+            <mat-form-field class="ag-playground-form__interval-field">
+                <input type="text" matInput
+                       [formControlName]="userInputEnum.X_INTERVAL"
+                       placeholder="x-Interval:"
+                       autocomplete="off">
+                <span matSuffix>px</span>
+            </mat-form-field>
+
+            <mat-form-field class="ag-playground-form__interval-field">
+                <input type="text" matInput
+                       [formControlName]="userInputEnum.Y_INTERVAL"
+                       placeholder="y-Interval:"
+                       autocomplete="off">
+                <span matSuffix>px</span>
+            </mat-form-field>
+        </div>
+        <mat-form-field class="ag-playground-form__input-field">
+            <input type="text" matInput
+                   [formControlName]="userInputEnum.MIN_IMG_WIDTH"
+                   placeholder="Min image width:"
+                   autocomplete="off">
+            <span matSuffix>px</span>
+        </mat-form-field>
+        <mat-form-field class="ag-playground-form__input-field">
+            <input type="text" matInput
+                   [formControlName]="userInputEnum.ROW_HEIGHT"
+                   placeholder="Image Height:"
+                   autocomplete="off">
+            <span matSuffix>px</span>
+        </mat-form-field>
+        <mat-form-field class="ag-playground-form__input-field">
+            <input type="number" matInput
+                   step="0.5"
+                   [formControlName]="userInputEnum.ANIMATION_DURATION"
+                   placeholder="Animation Duration:"
+                   autocomplete="off">
+            <span matSuffix>sec</span>
+        </mat-form-field>
+        <ag-animation-examples [formControlName]="userInputEnum.ANIMATION_KEYFRAME">
+        </ag-animation-examples>
+        <div>
+            <button type="submit">Submit</button>
+            <button type="button" (click)="reset()">Reset</button>
+        </div>
+    </form>
+</div>

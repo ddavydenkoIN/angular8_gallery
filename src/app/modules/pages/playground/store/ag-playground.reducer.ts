@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from "@ngrx/store";
 import { agPlaygroundInitialState, AgPlaygroundState } from "./ag-playground.state";
-import { loadAllImagesSuccess } from "./ag-playground.actions";
+import { loadAllImagesSuccess, updateUserInputModel } from "./ag-playground.actions";
 
 const reducer = createReducer(
   agPlaygroundInitialState,
@@ -11,7 +11,14 @@ const reducer = createReducer(
         isLoaded: true
       }
     })
-  )
+  ),
+  on(updateUserInputModel, (state, userInput) => ({
+    ...state,
+    galleryConfig: {
+      ...state.galleryConfig,
+      ...userInput
+    }
+  }))
 );
 
 export function agPlaygroundReducer(state: AgPlaygroundState | undefined, action: Action) {
