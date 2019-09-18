@@ -4,10 +4,19 @@
 }
 
 @keyframes pop {
-  to {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  20%, 80% {
+    transform: scale(1.05);
+  }
+
+  40%, 60% {
     transform: scale(1.1);
   }
 }
+
 @keyframes fadeInBottomToTop {
   from {
     opacity: 0;

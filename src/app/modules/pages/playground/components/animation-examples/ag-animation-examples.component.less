@@ -1,9 +1,56 @@
 @import "~src/assets/styles/keyframes";
+@import "~src/assets/styles/colors";
 
 .ag-animation-examples {
+  &__container {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-rows: 100px;
+  }
+
   &__item {
-    width: 50px;
-    height: 50px;
+    background: #3a3a3a;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #7b6d5c, #3a3a3a);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #7b6d5c, #3a3a3a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    color: white;
+    font-size: 0.8em;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
     background-color: aquamarine;
   }
+
+}
+
+mat-expansion-panel {
+  background-color: #3b3b3b;
+
+  &::ng-deep {
+    mat-expansion-panel-header > * {
+      color: white;
+
+      &::ng-deep {
+        mat-panel-title {
+          color: inherit;
+        }
+        mat-panel-description {
+          color: inherit;
+        }
+      }
+
+      &.mat-expansion-indicator::after {
+        color: inherit;
+      }
+    }
+  }
+
+    //mat-panel-title {
+    //  color: #ag-colors[textSecondary];
+    //}
+    //mat-panel-description {
+    //  color: #ag-colors[textSecondary];
+    //}
+
 }
