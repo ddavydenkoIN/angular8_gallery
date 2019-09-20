@@ -1,6 +1,6 @@
 import { AgNameId } from "../common";
-import { AgName } from "../common/name.model";
 import { AgImgStyles } from "../img";
+import { AgAnimation } from "./animation.model";
 
 export interface AgGallery extends AgNameId<string, number> {
   propContainerHeader?: string;
@@ -34,20 +34,9 @@ export interface AgUserInputConfig {
   boxShadow: string;
   minImgWidth: string;
   rowHeight: string;
-  animationClass?: string;
-  animationDuration?: string;
-  animationKeyframe?: string;
+  animation?: AgAnimation;
   borderRadius?: string;
   filter?: string;
-}
-
-export interface AgAnimationConfig extends AgName<string> {
-  duration: string;
-}
-
-export interface AgGalleryThumbnail {
-  shape: string;
-  url: string;
 }
 
 export interface IPropConverter {

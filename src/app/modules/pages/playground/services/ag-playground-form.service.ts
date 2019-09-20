@@ -11,7 +11,11 @@ export class AgPlaygroundFormService {
       [AgUserInput.Y_INTERVAL]: this.addPrefix(userInput.yInterval, 'px'),
       [AgUserInput.MIN_IMG_WIDTH]: this.buildImgWidthString(userInput.minImgWidth, imageWidthObj),
       [AgUserInput.ROW_HEIGHT]: this.addPrefix(userInput.rowHeight, 'px'),
-      [AgUserInput.ANIMATION_DURATION]: this.addPrefix(userInput.animationDuration, 's')
+      [AgUserInput.ANIMATION]: {
+        ...userInput.animation,
+        duration: this.addPrefix(userInput.animation.duration, 's'),
+      },
+      [AgUserInput.BORDER_RADIUS]: this.addPrefix(userInput.borderRadius, 'px')
     };
   }
 

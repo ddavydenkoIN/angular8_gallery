@@ -1,20 +1,26 @@
 @import '~src/assets/styles/colors';
 
+@maxFormFieldWidth: 200px;
+@formFieldsInterval: 40px;
+
 .ag-playground-form {
   padding: 25px;
 
-  &__interval {
+  &__interval, &__dimensions {
     &-field {
-      width: 50px;
+      width: calc(@maxFormFieldWidth - @formFieldsInterval) !important;
     }
 
     &-field:first-child {
-      margin-right: 40px;
+      margin-right: @formFieldsInterval;
     }
   }
   &::ng-deep {
     .mat-form-field-label {
       color: #ag-colors[textSecondary];
+    }
+    .mat-select-value-text {
+      color: #ag-colors[textPrimary];
     }
   }
 }

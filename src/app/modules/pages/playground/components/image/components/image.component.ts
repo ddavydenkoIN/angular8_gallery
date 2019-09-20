@@ -1,6 +1,7 @@
-import { Component, EventEmitter, HostBinding, HostListener, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { AgBypassSecurityType } from "../../../../../../enums";
+import { AgAnimation } from "../../../../../../models/gallery";
 
 @Component({
   selector: 'ag-image',
@@ -21,10 +22,7 @@ export class AgImageComponent {
   boxShadow?: string;
 
   @Input()
-  animationDuration?: string;
-
-  @Input()
-  animationKeyframe?: string;
+  animation?: AgAnimation;
 
   @Input()
   filter: string;

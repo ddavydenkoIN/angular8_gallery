@@ -2,17 +2,32 @@
     <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>Animation</mat-panel-title>
-            <mat-panel-description>{{selectedAnimation}}</mat-panel-description>
+            <mat-panel-description>{{selectedAnimation?.animation}}</mat-panel-description>
+            <mat-panel-description>{{selectedAnimation?.duration}}s</mat-panel-description>
         </mat-expansion-panel-header>
 
         <div class="ag-animation-examples__container">
-            <span class="ag-animation-examples__item" *ngFor="let animation of animationList; let i = index"
-                  [ngStyle]="{'animation-name': i === hoveredIndex && animation, 'animation-duration': '1s', 'animation-iteration-count': 'infinite'}"
-                  (click)="setAnimation(animation)"
+            <span class="ag-animation-examples__hoverable"
+                  *ngFor="let animation of animationList; let i = index"
                   (mouseenter)="hoveredIndex = i"
-                  (mouseleave)="hoveredIndex = null">
-                {{animation}}
+                  (mouseleave)="hoveredIndex = null"
+                  (click)="setAnimation(animation)">
+                <ng-container *ngIf="i === hoveredIndex">
+                    <span class="ag-animation-examples__hoverable-item"
+                          [ngStyle]="{'animation-name': i === hoveredIndex && animation, 'animation-duration': '1s', 'animation-iteration-count': 'infinite'}">
+                    </span>
+                </ng-container>
+                <div class="ag-animation-examples__hoverable-name">{{animation}}</div>
             </span>
         </div>
+        <mat-form-field class="ag-animation-examples__duration">
+            <input type="number" matInput
+                   step="0.5"
+                   [value]="selectedAnimation?.duration"
+                   placeholder="Duration:"
+                   (change)="setDuration($event.target.value)"
+                   autocomplete="off">
+            <span matSuffix>sec</span>
+        </mat-form-field>
     </mat-expansion-panel>
 </mat-accordion>

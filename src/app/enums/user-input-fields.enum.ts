@@ -3,7 +3,8 @@ export enum AgUserInput {
   Y_INTERVAL = 'yInterval',
   MIN_IMG_WIDTH = 'minImgWidth',
   ROW_HEIGHT = 'rowHeight',
-  ANIMATION_DURATION = 'animationDuration',
-  ANIMATION_KEYFRAME = 'animationKeyframe',
-  BOX_SHADOW = 'boxShadow'
+  ANIMATION = 'animation',
+  BOX_SHADOW = 'boxShadow',
+  BORDER_RADIUS = 'borderRadius',
+  FILTER = 'filter'
 }

@@ -45,7 +45,16 @@
     }
   },
   "PLAYGROUND": {
-    "HEADER": "playground"
+    "HEADER": "playground",
+    "BLACK_AND_WHITE": "Black and White",
+    "BLUR": "Blurry",
+    "CONTRAST": "Contrast",
+    "BRIGHT": "Bright",
+    "DARK": "Dark",
+    "INVERT": "Invert",
+    "TRANSPARENT": "Transparent",
+    "SEPIA": "Sepia",
+    "NONE": "None"
   },
   "SEARCH": {
     "PLACEHOLDER": "Enter search text",

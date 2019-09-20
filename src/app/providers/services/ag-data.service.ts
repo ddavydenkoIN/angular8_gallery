@@ -73,7 +73,8 @@ export class AgDataService implements InMemoryDbService {
             'grid-row-gap': '10px'
           },
           img: {
-            filter: 'grayscale(1)'
+            filter: 'grayscale(1)',
+            'border-radius': '0px'
           }
         },
         isRandomSizeImages: true,

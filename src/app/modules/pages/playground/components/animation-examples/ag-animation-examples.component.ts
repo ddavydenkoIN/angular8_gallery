@@ -1,7 +1,8 @@
-import { Component, forwardRef, OnInit } from '@angular/core';
+import { Component, forwardRef } from '@angular/core';
 
 import { AgAnimationEnum } from "../../../../../enums";
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { AgAnimation } from "../../../../../models/gallery";
 
 @Component({
   selector: 'ag-animation-examples',
@@ -15,20 +16,26 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
   }
 ]
 })
-export class AgAnimationExamplesComponent implements OnInit, ControlValueAccessor  {
+export class AgAnimationExamplesComponent implements ControlValueAccessor  {
 
   animationList = Object.values(AgAnimationEnum);
   hoveredIndex: number;
-  selectedAnimation: string;
+  selectedAnimation: AgAnimation;
 
   setAnimation(selectedKeyframe: string): void {
-    this.selectedAnimation = selectedKeyframe;
+    this.selectedAnimation = {
+      ...this.selectedAnimation,
+      animation: selectedKeyframe
+    };
     this.propagateChange(this.selectedAnimation);
   }
 
-  constructor() { }
-
-  ngOnInit() {
+  setDuration(duration: string): void {
+    this.selectedAnimation = {
+      ...this.selectedAnimation,
+      duration: duration
+    };
+    this.propagateChange(this.selectedAnimation);
   }
 
   propagateChange = (_: any) => {};
@@ -43,9 +50,9 @@ export class AgAnimationExamplesComponent implements OnInit, ControlValueAccesso
   setDisabledState(isDisabled: boolean): void {
   }
 
-  writeValue(keyframe: string): void {
-    if (keyframe) {
-      this.selectedAnimation = keyframe;
+  writeValue(animation: AgAnimation): void {
+    if (animation) {
+      this.selectedAnimation = animation;
     }
   }
 

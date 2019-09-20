@@ -1,23 +1,25 @@
-<div class="ag-gallery__container" *ngIf="loadCount"
-     [ngStyle]="styles?.container"
-     infiniteScroll
-     [infiniteScrollDistance]="1"
-     [infiniteScrollThrottle]="20"
-     [infiniteScrollContainer]="'.' + containerClass"
-     [fromRoot]="true"
-     (scrolled)="onScroll()"
->
-    <ng-container *ngFor="let url of urlsToShow; let i = index">
-        <ag-image class="ag-gallery__img"
-            [url]="url"
-            [id]="i"
-            [borderRadius]="styles?.img?.borderRadius"
-            [boxShadow]="styles?.img?.boxShadow"
-            [animationDuration]="styles?.img?.animationDuration"
-            [animationKeyframe]="styles?.img?.animationKeyframe"
-            [filter]="styles?.img?.filter"
-            [ngClass]="isRandomSized ? shapes[i] : null"
-            (onImgClick)="onImgClick($event)">
-        </ag-image>
-    </ng-container>
+<div class="ag-gallery__wrapper" [ngStyle]="{'height': galleryHeight}">
+    <div class="ag-gallery__container" *ngIf="loadCount"
+         [ngStyle]="styles?.container"
+         infiniteScroll
+         [infiniteScrollDistance]="1"
+         [infiniteScrollThrottle]="20"
+         [infiniteScrollContainer]="'.' + 'ag-gallery__wrapper'"
+         [fromRoot]="true"
+         (scrolled)="onScroll()"
+    >
+        <ng-container *ngFor="let url of urlsToShow; let i = index">
+            <ag-image class="ag-gallery__img"
+                      [url]="url"
+                      [id]="i"
+                      [borderRadius]="styles?.img?.borderRadius"
+                      [boxShadow]="styles?.img?.boxShadow"
+                      [animation]="styles?.img?.animation"
+                      [filter]="styles?.img?.filter"
+                      [ngClass]="isRandomSized ? shapes[i] : null"
+                      (onImgClick)="onImgClick($event)">
+            </ag-image>
+        </ng-container>
+    </div>
 </div>
+

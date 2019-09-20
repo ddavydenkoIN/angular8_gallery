@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 
+import { TranslateModule } from "@ngx-translate/core";
+
 import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule, MatSelectModule } from "@angular/material";
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -19,7 +21,6 @@ import { AgPlaygroundFormComponent } from './components/form/ag-playground-form.
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AgPlaygroundFormService } from "./services/ag-playground-form.service";
 import { AgAnimationExamplesComponent } from './components/animation-examples/ag-animation-examples.component';
-
 
 @NgModule({
   declarations: [AgPlaygroundComponent, AgPlaygroundFormComponent, AgAnimationExamplesComponent],

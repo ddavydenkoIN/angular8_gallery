@@ -10,8 +10,7 @@ const ContainerStylesMap = new Map([
 ]);
 
 const ImgStylesMap = new Map([
-  ['animationDuration', 'animationDuration'],
-  ['animationKeyframe', 'animationKeyframe'],
+  ['animation', 'animation'],
   ['borderRadius', 'borderRadius'],
   ['boxShadow', 'boxShadow'],
   ['filter', 'filter']

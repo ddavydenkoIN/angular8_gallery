@@ -1,5 +1,31 @@
 :host {
+  height: 100%;
+
   .ag-gallery {
+    &__wrapper {
+      background-color: white;
+      margin-right: 2px;
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 7px;
+
+        &-thumb {
+          margin-top: 2px;
+          background: grey;
+          border-radius: 10px;
+
+          &:hover {
+            background: darkgray;
+          }
+        }
+      }
+    }
+
+    &__container {
+      padding: 15px;
+    }
+
     &__img {
       &.horizontal {
         grid-column: span 2;

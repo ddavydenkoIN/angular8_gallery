@@ -1,5 +1,4 @@
 import { AgImageShape } from "../../../../../../enums";
-import { AgNameValue, AgObject } from "../../../../../../models";
 
 export class AgGalleryService {
 
@@ -15,6 +14,13 @@ export class AgGalleryService {
       shapesArray.push(this.getRandomShape());
     }
     return shapesArray;
+  }
+
+  scrollToTop() {
+    const el = document.getElementsByClassName('ag-gallery__wrapper');
+    if (el && el.length) {
+      el[0].scrollTop = 0;
+    }
   }
 
   getRandomShape(): string {

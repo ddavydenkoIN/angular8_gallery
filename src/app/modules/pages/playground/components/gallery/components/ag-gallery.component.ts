@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { DomSanitizer } from "@angular/platform-browser";
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 import { AgGalleryStyles } from "../../../../../../models/gallery";
 import { AgOnChange } from "../../../../../../providers/decorators";
@@ -15,7 +14,8 @@ import { AgUrlId } from "../../../../../../models/common";
 })
 export class AgGalleryComponent {
   @AgOnChange(function(this: AgGalleryComponent, styles: any) {
-    console.log(styles)
+    this.agGalleryService.scrollToTop();
+
     return styles;
   })
   @Input()
@@ -35,13 +35,13 @@ export class AgGalleryComponent {
   loadCount: number;
 
   @Input()
-  containerClass: string;
-
-  @Input()
   isRandomSized?: boolean = false;
 
   @Input()
   numberOfImagesOnStart?: number = 15;
+
+  @Input()
+  galleryHeight: string;
 
   shapes: string[];
   urlsToShow: string[];

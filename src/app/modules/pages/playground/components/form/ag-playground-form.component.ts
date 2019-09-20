@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup } from "@angular/forms";
+import { ActivatedRoute } from "@angular/router";
+
+import { take } from "rxjs/operators";
+
 import { AgPlaygroundService } from "../../services/ag-playground.service";
-import { ActivatedRoute, Route } from "@angular/router";
-import { map, take } from "rxjs/operators";
 import { AgGalleryStyles, AgUserInputConfig } from "../../../../../models/gallery";
 import { AgPlaygroundFormService } from "../../services/ag-playground-form.service";
-import { AgAnimationEnum, AgUserInput } from "../../../../../enums";
-import { AgImgWidthObject } from "../../../../../models/img";
+import { AgUserInput } from "../../../../../enums";
+import { AgImgFilter, AgImgWidthObject } from "../../../../../models/img";
+import { IMG_FILTERS } from "../../../../../consts";
 
 @Component({
   selector: 'ag-playground-form',
@@ -19,6 +22,7 @@ export class AgPlaygroundFormComponent implements OnInit {
   backupConfig: AgGalleryStyles;
   imageWidthObj: AgImgWidthObject;
   userInputEnum = AgUserInput;
+  filters: AgImgFilter[] = IMG_FILTERS;
 
   constructor(private playgroundService: AgPlaygroundService,
               private route: ActivatedRoute,
@@ -41,8 +45,12 @@ export class AgPlaygroundFormComponent implements OnInit {
       [AgUserInput.Y_INTERVAL]: new FormControl(config.container["grid-column-gap"].replace('px', '')),
       [AgUserInput.MIN_IMG_WIDTH]: new FormControl(this.imageWidthObj.value.replace('px', '')),
       [AgUserInput.ROW_HEIGHT]: new FormControl(config.container['grid-auto-rows'].replace('px', '')),
-      [AgUserInput.ANIMATION_DURATION]: new FormControl(config.img['animationDuration'].replace('s', '')),
-      [AgUserInput.ANIMATION_KEYFRAME]: new FormControl(config.img['animationKeyframe'])
+      [AgUserInput.ANIMATION]: new FormControl({
+        duration: config.img['animation']['duration'].replace('s', ''),
+        animation: config.img['animation']['animation']
+      }),
+      [AgUserInput.BORDER_RADIUS]: new FormControl(config.img['border-radius'].replace('px', '')),
+      [AgUserInput.FILTER]: new FormControl(config.img['filter'])
     });
     return group;
   }
@@ -56,6 +64,10 @@ export class AgPlaygroundFormComponent implements OnInit {
     this.playgroundService.updateUserInput(
       <AgUserInputConfig>this.playgroundFormService.handleUserInput(this.userInputForm.value, this.imageWidthObj)
     );
+  }
+
+  compareWithFunction(a: AgImgFilter, b: AgImgFilter): boolean {
+    return a.value === b.value;
   }
 
 }

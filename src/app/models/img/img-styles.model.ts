@@ -1,8 +1,9 @@
+import { AgAnimation } from "../gallery";
+
 export interface AgImgStyles {
   boxShadow: string;
   borderRadius: string;
-  animationDuration: string;
-  animationKeyframe: string;
+  animation: AgAnimation;
   filter?: string;
 }
 

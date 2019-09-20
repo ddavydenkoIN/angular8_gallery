@@ -4,5 +4,7 @@ export enum AgAnimationEnum {
   FADE_IN_BOTTOM_TOP = 'fadeInBottomToTop',
   FADE_IN_TOP_BOTTOM = 'fadeInTopToBottom',
   FADE_IN_LEFT_TO_RIGHT = 'fadeInLeftToRight',
-  FADE_IN_RIGHT_TO_LEFT = 'fadeInRightToLeft'
+  FADE_IN_RIGHT_TO_LEFT = 'fadeInRightToLeft',
+  ROLL_IN = 'rollIn',
+  PULSE = 'pulse'
 }
