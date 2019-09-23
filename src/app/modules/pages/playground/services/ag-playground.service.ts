@@ -9,6 +9,8 @@ import { AgUserInputConfig, AgGalleryStyles } from "../../../../models";
 import { AgGalleryListService } from "../../home/modules/gallery-list/services/ag-gallery-list.service";
 import { AgGalleryPropsAdapter } from "../components/gallery/services/ag-gallery-props.adapter";
 import { AgUserInputToGalleryPropsConverter } from "./ag-user-input-to-gallery-props.converter";
+import { AgContainerStyles } from "../../../../models/gallery/gallery.model";
+import { AgImgStyles } from "../../../../models/img";
 
 @Injectable()
 export class AgPlaygroundService {
@@ -21,6 +23,9 @@ export class AgPlaygroundService {
     this.agPlaygroundStoreService.loadAllImages();
   }
 
+  resetPlaygroundState() {
+    this.agPlaygroundStoreService.resetPlaygroundState();
+  }
   retrieveAllImageUrls(): Observable<string[]> {
     return this.agPlaygroundStoreService.retrieveAllImageUrls();
   }
@@ -40,15 +45,34 @@ export class AgPlaygroundService {
   retrieveJoinedGalleryConfig(id: string): Observable<AgGalleryStyles> {
   return this.retrieveGalleryConfig()
     .pipe(
-      withLatestFrom(this.galleryListService.getGalleryProps(id)),
-      map(([userInput, galleryConf]: [AgUserInputConfig, AgGalleryStyles]): AgGalleryStyles => {
+      withLatestFrom(
+        this.galleryListService.getGalleryProps(id),
+        this.agPlaygroundStoreService.retrieveUserInteractionFlag()
+      ),
+      map(([userInput, galleryConf, userInteractionFlag]: [AgUserInputConfig, AgGalleryStyles, boolean]): AgGalleryStyles => {
         const convertedUserProps =  new AgGalleryPropsAdapter(new AgUserInputToGalleryPropsConverter()).convert(userInput);
         return {
-          container: {...galleryConf.container, ...convertedUserProps.container},
-          img: {...galleryConf.img, ...convertedUserProps.img}
+          container: userInteractionFlag
+            ? this.mergeContainerProps(galleryConf.container, convertedUserProps.container)
+            : this.mergeContainerProps(convertedUserProps.container, galleryConf.container),
+          img: userInteractionFlag
+            ? this.mergeImgProps(galleryConf.img, convertedUserProps.img)
+            : this.mergeImgProps(convertedUserProps.img, galleryConf.img),
         };
       })
     );
+  }
+
+  mergeContainerProps(primary: Partial<AgContainerStyles>, secondary: Partial<AgContainerStyles>): Partial<AgContainerStyles> {
+    return {...primary, ...secondary};
+  }
+
+  mergeImgProps(primary: Partial<AgImgStyles>, secondary: Partial<AgImgStyles>): Partial<AgImgStyles> {
+    return {
+      ...primary,
+      ...secondary,
+      animation: {...primary.animation, ...secondary.animation}
+    };
   }
 
   updateUserInput(userInput: AgUserInputConfig): void {

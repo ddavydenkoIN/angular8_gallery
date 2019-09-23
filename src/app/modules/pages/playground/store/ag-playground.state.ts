@@ -7,6 +7,7 @@ export interface AgPlaygroundState {
   images: AgImagesListState;
   initialNumberOfImages: number;
   galleryConfig: AgUserInputConfig;
+  userInteractionFlag: boolean;
 }
 
 export interface AgImagesListState extends AgImages {
@@ -16,6 +17,7 @@ export interface AgImagesListState extends AgImages {
 export const agPlaygroundInitialState: AgPlaygroundState = {
   images: null,
   initialNumberOfImages: 20,
+  userInteractionFlag: false,
   galleryConfig: {
     [AgUserInput.X_INTERVAL]: "15px",
     [AgUserInput.Y_INTERVAL]: "15px",

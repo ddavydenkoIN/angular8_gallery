@@ -16,5 +16,8 @@ export const retrieveInitialNumberOfImages = createSelector(agPlayground,
 export const retrieveInitialGalleryConfig = createSelector(agPlayground,
   (state: AgPlaygroundState) => state.galleryConfig);
 
+export const retrieveUserInteractionFlag = createSelector(agPlayground,
+  (state: AgPlaygroundState) => state.userInteractionFlag);
+
 export const retrieveImgWidth = createSelector(retrieveInitialGalleryConfig,
-  (state: AgUserInputConfig) => state.minImgWidth)
+  (state: AgUserInputConfig) => state.minImgWidth);

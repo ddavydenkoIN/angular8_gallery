@@ -1,14 +1,15 @@
 <mat-accordion>
     <mat-expansion-panel>
         <mat-expansion-panel-header>
-            <mat-panel-title>Animation</mat-panel-title>
+            <mat-panel-title>{{'PLAYGROUND.ANIMATION' | translate}}</mat-panel-title>
             <mat-panel-description>{{selectedAnimation?.animation}}</mat-panel-description>
-            <mat-panel-description>{{selectedAnimation?.duration}}s</mat-panel-description>
+            <mat-panel-description>{{selectedAnimation?.duration}}{{'PLAYGROUND.SECONDS_SHORT' | translate}}</mat-panel-description>
         </mat-expansion-panel-header>
 
         <div class="ag-animation-examples__container">
             <span class="ag-animation-examples__hoverable"
                   *ngFor="let animation of animationList; let i = index"
+                  [ngClass]="{selected: selectedAnimation && selectedAnimation.animation === animation}"
                   (mouseenter)="hoveredIndex = i"
                   (mouseleave)="hoveredIndex = null"
                   (click)="setAnimation(animation)">
@@ -24,10 +25,10 @@
             <input type="number" matInput
                    step="0.5"
                    [value]="selectedAnimation?.duration"
-                   placeholder="Duration:"
+                   [placeholder]="('PLAYGROUND.DURATION' | translate) + ':'"
                    (change)="setDuration($event.target.value)"
                    autocomplete="off">
-            <span matSuffix>sec</span>
+            <span matSuffix>{{'PLAYGROUND.SECONDS' | translate}}</span>
         </mat-form-field>
     </mat-expansion-panel>
 </mat-accordion>

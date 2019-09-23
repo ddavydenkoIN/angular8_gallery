@@ -17,8 +17,8 @@ export interface AgImg {
 }
 
 export interface AgGalleryStyles {
-  container: AgContainerStyles;
-  img: AgImgStyles;
+  container: Partial<AgContainerStyles>;
+  img: Partial<AgImgStyles>;
 }
 
 export interface AgContainerStyles {

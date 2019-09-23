@@ -14,7 +14,7 @@
   }
 
   &__hoverable {
-    border: 1px solid black;
+    background-color: #cacaca;
     cursor: pointer;
     position: relative;
     width: 100px;
@@ -22,6 +22,11 @@
     font-size: 0.8em;
     border-radius: 8px;
     color: white;
+
+    &.selected {
+      background-color: #3b3b3b;
+      border: none;
+    }
 
     &-item {
       display: block;
@@ -58,6 +63,8 @@
 
 mat-expansion-panel {
   background-color: #3b3b3b;
+  margin-bottom: 20px !important;
+  margin-top: 10px;
 
   &::ng-deep {
     mat-panel-title {
@@ -65,7 +72,7 @@ mat-expansion-panel {
     }
 
     mat-expansion-panel-header > * {
-      color: white;
+      color: #ag-colors[textPrimary];
 
       &::ng-deep {
         mat-panel-description {

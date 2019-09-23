@@ -4,6 +4,7 @@
 @playgroundHeaderHeight: '100px';
 
 :host {
+  overflow: hidden;
   display: grid;
 
   height: 100%;
@@ -38,9 +39,24 @@
 
 
     &__options {
-      background-color: #2c2f34;
+      background-color: black;
       grid-column: 1;
       grid-row: 2;
+      color: #ag-colors[textPrimary];
+      position: relative;
+      overflow: hidden;
     }
+  }
+}
+
+@media (max-width: 1400px) {
+  :host {
+    grid-template-columns: 2fr 4fr;
+  }
+}
+
+@media (max-width: 1100px) {
+  :host {
+    grid-template-columns: 1fr 1fr;
   }
 }

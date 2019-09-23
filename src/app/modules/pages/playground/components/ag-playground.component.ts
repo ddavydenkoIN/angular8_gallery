@@ -54,6 +54,10 @@ export class AgPlaygroundComponent extends AgUnsubscribe implements OnInit, Afte
       .subscribe((width: number) => this.imgWidth = width);
   }
 
+  ngOnDestroy() {
+    this.agPlaygroundService.resetPlaygroundState();
+  }
+
   ngAfterViewInit() {
     this.loadCount = this.agPlaygroundService.calculateLoadCount(this.galleryContainer, this.imgWidth);
   }

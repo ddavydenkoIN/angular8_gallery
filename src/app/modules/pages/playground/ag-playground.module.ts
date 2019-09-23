@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 
-import { TranslateModule } from "@ngx-translate/core";
-
+import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule, MatSelectModule } from "@angular/material";
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -36,7 +35,8 @@ import { AgAnimationExamplesComponent } from './components/animation-examples/ag
     MatInputModule,
     MatSelectModule,
     MatOptionModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatButtonModule
   ],
   providers: [
     AgPlaygroundService,

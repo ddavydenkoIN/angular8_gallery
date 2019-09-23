@@ -32,7 +32,7 @@ export class AgGalleryListComponent extends AgWordsHighlighter implements OnInit
       .pipe(
         takeUntil(this.destroy$),
         filter(isNoGalleryLoaded => isNoGalleryLoaded)
-      ).subscribe(() => this.agGalleriesService.loadAllGalleries())
+      ).subscribe(() => this.agGalleriesService.loadAllGalleries());
 
     this.homeService.setCurrentlyOpenedTab(AgSearchableTabs.GALLERIES);
     this.galleriesList$ = this.agGalleriesService.retrieveGalleries();

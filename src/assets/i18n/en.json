@@ -36,12 +36,12 @@
       "HEADER_NAME": "list of galleries",
       "ROUTE_NAME": "Galleries",
       "PROPS_USED": "Props used:",
-      "TRADITIONAL_FLOATS": "Traditional Floats - broken",
-      "GRID_TEMPLATE_ROWS_REPEAT": "Display GRID: Template rows Repeat.",
       "PROPS_CONTAINER": "Container props:",
       "PROPS_IMG": "Image Props:",
-      "GRID_AUTO_FLOW_DENCE": "Display Grid: grid-auto-flow: dense;",
-      "GRID_REPEAT_AUTOFIT_MINMAX": "Display Grid: repeat(auto-fit, minmax(...))"
+      "SPINY_SEPIA": "Spiny Sepia",
+      "BLACK_AND_WHITE": "Black and white",
+      "BLUR_ROUND": "Blurred bubles",
+      "DARK_ONE": "Dark one"
     }
   },
   "PLAYGROUND": {
@@ -54,7 +54,21 @@
     "INVERT": "Invert",
     "TRANSPARENT": "Transparent",
     "SEPIA": "Sepia",
-    "NONE": "None"
+    "NONE": "None",
+    "SUBMIT": "Submit",
+    "RESET": "Reset",
+    "FILTER": "Filter",
+    "ANIMATION": "Animation",
+    "SECONDS": "Seconds",
+    "DURATION": "Duration",
+    "X_INTERVAL": "x-Interval",
+    "Y_INTERVAL": "y-Interval",
+    "PIXELS_SHORT": "px",
+    "MIN_IMG_WIDTH": "Min image width",
+    "IMG_HEIGHT": "Image height",
+    "BORDER_RADIUS": "Border radius",
+    "SECONDS_SHORT": "s",
+    "RETURN": "return"
   },
   "SEARCH": {
     "PLACEHOLDER": "Enter search text",

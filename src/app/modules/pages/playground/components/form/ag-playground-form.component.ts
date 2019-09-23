@@ -18,7 +18,7 @@ import { IMG_FILTERS } from "../../../../../consts";
 })
 export class AgPlaygroundFormComponent implements OnInit {
 
-  userInputForm: FormGroup;
+  userInputForm: FormGroup = new FormGroup({});
   backupConfig: AgGalleryStyles;
   imageWidthObj: AgImgWidthObject;
   userInputEnum = AgUserInput;
@@ -34,7 +34,6 @@ export class AgPlaygroundFormComponent implements OnInit {
       .subscribe((config: AgGalleryStyles) => {
         this.backupConfig = config;
         this.userInputForm = this.buildFormGroup(config);
-        console.log(config);
       });
   }
 
@@ -49,7 +48,7 @@ export class AgPlaygroundFormComponent implements OnInit {
         duration: config.img['animation']['duration'].replace('s', ''),
         animation: config.img['animation']['animation']
       }),
-      [AgUserInput.BORDER_RADIUS]: new FormControl(config.img['border-radius'].replace('px', '')),
+      [AgUserInput.BORDER_RADIUS]: new FormControl(config.img['borderRadius'].replace('px', '')),
       [AgUserInput.FILTER]: new FormControl(config.img['filter'])
     });
     return group;
@@ -67,7 +66,7 @@ export class AgPlaygroundFormComponent implements OnInit {
   }
 
   compareWithFunction(a: AgImgFilter, b: AgImgFilter): boolean {
-    return a.value === b.value;
+    return a === b;
   }
 
 }

@@ -2,25 +2,74 @@
 
 @maxFormFieldWidth: 200px;
 @formFieldsInterval: 40px;
+@buttonPanelHeight: 70px;
+@formPadding: 25px;
 
-.ag-playground-form {
-  padding: 25px;
+:host {
+  height: 100%;
 
-  &__interval, &__dimensions {
-    &-field {
-      width: calc(@maxFormFieldWidth - @formFieldsInterval) !important;
+  .ag-playground-form {
+    padding: @formPadding 5px @formPadding @formPadding;
+
+    &__interval, &__dimensions {
+      &-field {
+        width: calc(@maxFormFieldWidth - @formFieldsInterval) !important;
+      }
+
+      &-field:first-child {
+        margin-right: @formFieldsInterval;
+      }
     }
 
-    &-field:first-child {
-      margin-right: @formFieldsInterval;
+    &__inputs-container {
+      padding-right: 10px;
+      height: calc(80vh - @buttonPanelHeight);
+      overflow-y: scroll;
+
+      &::-webkit-scrollbar {
+        width: 7px;
+
+        &-thumb {
+          margin-top: 2px;
+          background: grey;
+          border-radius: 10px;
+
+          &:hover {
+            background: darkgray;
+          }
+        }
+      }
+    }
+
+    &::ng-deep {
+      .mat-form-field {
+        display: block;
+      }
+
+      .mat-form-field-underline {
+        background-color: #ag-colors[textPrimary];
+      }
+
+      .mat-form-field-label {
+        color: #ag-colors[textSecondary];
+      }
+      .mat-select-value-text {
+        color: #ag-colors[textPrimary];
+      }
     }
   }
-  &::ng-deep {
-    .mat-form-field-label {
-      color: #ag-colors[textSecondary];
-    }
-    .mat-select-value-text {
-      color: #ag-colors[textPrimary];
+
+  .ag-playground-form__button-panel {
+    height: @buttonPanelHeight;
+    background-color: rgb(105, 105, 105, 0.7);
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .mat-raised-button {
+      min-width: 150px;
     }
   }
 }

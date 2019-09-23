@@ -1,54 +1,53 @@
 <div>
     <form [formGroup]="userInputForm"
-          (ngSubmit)="submit()"
           class="ag-playground-form">
-        <div class="ag-playground-form__interval">
-            <mat-form-field class="ag-playground-form__interval-field">
-                <input type="text" matInput
-                       [formControlName]="userInputEnum.X_INTERVAL"
-                       placeholder="x-Interval:"
+        <div class="ag-playground-form__inputs-container">
+            <div class="ag-playground-form__interval">
+                <mat-form-field class="ag-playground-form__interval-field">
+                    <input type="text" matInput
+                           [formControlName]="userInputEnum.X_INTERVAL"
+                           [placeholder]="('PLAYGROUND.X_INTERVAL' | translate) + ':'"
+                           autocomplete="off">
+                    <span matSuffix>{{'PLAYGROUND.PIXELS_SHORT' | translate}}</span>
+                </mat-form-field>
+
+                <mat-form-field class="ag-playground-form__interval-field">
+                    <input type="text" matInput
+                           [formControlName]="userInputEnum.Y_INTERVAL"
+                           [placeholder]="('PLAYGROUND.Y_INTERVAL' | translate) + ':'"
+                           autocomplete="off">
+                    <span matSuffix>{{'PLAYGROUND.PIXELS_SHORT' | translate}}</span>
+                </mat-form-field>
+            </div>
+            <div class="ag-playground-form__dimensions">
+                <mat-form-field class="ag-playground-form__dimensions-field">
+                    <input type="text" matInput
+                           [formControlName]="userInputEnum.MIN_IMG_WIDTH"
+                           [placeholder]="('PLAYGROUND.MIN_IMG_WIDTH' | translate) + ':'"
+                           autocomplete="off">
+                    <span matSuffix>{{'PLAYGROUND.PIXELS_SHORT' | translate}}</span>
+                </mat-form-field>
+                <mat-form-field class="ag-playground-form__dimensions-field">
+                    <input type="text" matInput
+                           [formControlName]="userInputEnum.ROW_HEIGHT"
+                           [placeholder]="('PLAYGROUND.IMG_HEIGHT' | translate) + ':'"
+                           autocomplete="off">
+                    <span matSuffix>{{'PLAYGROUND.PIXELS_SHORT' | translate}}</span>
+                </mat-form-field>
+            </div>
+            <ag-animation-examples [formControlName]="userInputEnum.ANIMATION"></ag-animation-examples>
+
+            <mat-form-field class="ag-playground-form__border-radius-field">
+                <input type="number" matInput
+                       step="1"
+                       [formControlName]="userInputEnum.BORDER_RADIUS"
+                       [placeholder]="('PLAYGROUND.BORDER_RADIUS' | translate) + ':'"
                        autocomplete="off">
-                <span matSuffix>px</span>
+                <span matSuffix>{{'PLAYGROUND.SECONDS_SHORT' | translate}}</span>
             </mat-form-field>
 
-            <mat-form-field class="ag-playground-form__interval-field">
-                <input type="text" matInput
-                       [formControlName]="userInputEnum.Y_INTERVAL"
-                       placeholder="y-Interval:"
-                       autocomplete="off">
-                <span matSuffix>px</span>
-            </mat-form-field>
-        </div>
-        <div class="ag-playground-form__dimensions">
-            <mat-form-field class="ag-playground-form__dimensions-field">
-                <input type="text" matInput
-                       [formControlName]="userInputEnum.MIN_IMG_WIDTH"
-                       placeholder="Min image width:"
-                       autocomplete="off">
-                <span matSuffix>px</span>
-            </mat-form-field>
-            <mat-form-field class="ag-playground-form__dimensions-field">
-                <input type="text" matInput
-                       [formControlName]="userInputEnum.ROW_HEIGHT"
-                       placeholder="Image Height:"
-                       autocomplete="off">
-                <span matSuffix>px</span>
-            </mat-form-field>
-        </div>
-        <ag-animation-examples [formControlName]="userInputEnum.ANIMATION"></ag-animation-examples>
-
-        <mat-form-field class="ag-playground-form__border-radius-field">
-            <input type="number" matInput
-                   step="0.5"
-                   [formControlName]="userInputEnum.BORDER_RADIUS"
-                   placeholder="Border radius:"
-                   autocomplete="off">
-            <span matSuffix>sec</span>
-        </mat-form-field>
-
-        <div>
-            <mat-form-field>
-                <mat-label>Filter</mat-label>
+            <mat-form-field class="ag-playground-form__filter-field">
+                <mat-label>{{'PLAYGROUND.FILTER' | translate}}</mat-label>
                 <mat-select [formControlName]="userInputEnum.FILTER"
                             [compareWith]="compareWithFunction">
                     <mat-option>{{'PLAYGROUND.NONE' | translate}}</mat-option>
@@ -56,9 +55,9 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <div>
-            <button type="submit">Submit</button>
-            <button type="button" (click)="reset()">Reset</button>
-        </div>
     </form>
+    <div class="ag-playground-form__button-panel">
+        <button mat-raised-button type="submit" (click)="submit()">{{'PLAYGROUND.SUBMIT' | translate}}</button>
+        <button mat-raised-button type="button" (click)="reset()">{{'PLAYGROUND.RESET' | translate}}</button>
+    </div>
 </div>
