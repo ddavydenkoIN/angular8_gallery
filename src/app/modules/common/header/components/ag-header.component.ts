@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { AgLanguagesEnum } from "../../../../enums";
-import { LANGUAGE_ICONS_FOLDER } from "../../../../consts"
+import { LANGUAGE_ICONS_FOLDER } from "../../../../consts";
 import { AgTranslateService } from "../../translate/services/ag-translate.service";
 
 @Component({
@@ -10,7 +10,7 @@ import { AgTranslateService } from "../../translate/services/ag-translate.servic
   styleUrls: ['./ag-header.component.less']
 })
 export class AgHeaderComponent {
-  languages: AgLanguagesEnum[] = [AgLanguagesEnum.ENG, AgLanguagesEnum.RUS, AgLanguagesEnum.UKR, AgLanguagesEnum.ESP];
+  languages: AgLanguagesEnum[] = [AgLanguagesEnum.ENG, AgLanguagesEnum.RUS];
 
   languageIconsUrl = LANGUAGE_ICONS_FOLDER;
 
