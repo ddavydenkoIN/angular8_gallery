@@ -1,0 +1,80 @@
+{
+  "HOME": {
+    "TITLE": "Галлерея на Angular 8",
+    "SUBTITLE": "Построена на основе CSS-grid.",
+    "ABOUT": {
+      "ROUTE_NAME": "О проэкте"
+    },
+    "TECHNOLOGY": {
+      "ROUTE_NAME": "Технологии",
+      "OBSERVABLES_HANDLING": {
+        "TITLE": "Работа с Observabl-ами:",
+        "RXJS": "\"rxjs\": \"~6.4.0\""
+      },
+      "LOCALIZATION": {
+        "TITLE": "Локализация:",
+        "FIRST": "\"@ngx-translate/core\": \"^11.0.1\"",
+        "SECOND": "\"@ngx-translate/http-loader\": \"^4.0.0\","
+      },
+      "STORE": {
+        "TITLE": "Стор:",
+        "EFFECTS": "\"@ngrx/effects\": \"^8.0.1\"",
+        "ENTITY": "\"@ngrx/entity\": \"^8.0.1\"",
+        "ROUTER_STORE": "\"@ngrx/router-store\": \"^8.0.1\"",
+        "SCHEMATICS": "\"@ngrx/schematics\": \"^8.0.1\"",
+        "STORE": "\"@ngrx/store\": \"^8.0.1\"",
+        "DEVTOOLS": "\"@ngrx/store-devtools\": \"^8.0.1\""
+      },
+      "COMPONENTS_LIB": {
+        "TITLE": "Библиотека компонент:",
+        "MATERIAL": "\"@angular/material\": \"^8.0.1\"",
+        "CDK": "\"@angular/cdk\": \"~8.0.1\""
+      },
+      "INFINITE_SCROLL": "Безконечный скролл:"
+    },
+    "GALLERIES": {
+      "HEADER_NAME": "список галлерей",
+      "ROUTE_NAME": "Галлереи",
+      "PROPS_USED": "Использованные свойства:",
+      "PROPS_CONTAINER": "Свойства контейнера:",
+      "PROPS_IMG": "Свойства изображения:",
+      "SPINY_SEPIA": "Закрученная сепия",
+      "BLACK_AND_WHITE": "Черно-белая",
+      "BLUR_ROUND": "Смазанные пузыри",
+      "DARK_ONE": "Тёмная"
+    }
+  },
+  "PLAYGROUND": {
+    "HEADER": "песочница",
+    "BLACK_AND_WHITE": "Черно-белый",
+    "BLUR": "Смазанный",
+    "CONTRAST": "Контрастный",
+    "BRIGHT": "Светлый",
+    "DARK": "Тёмный",
+    "INVERT": "Инвертированный",
+    "TRANSPARENT": "Прозрачный",
+    "SEPIA": "Сепия",
+    "NONE": "Без эффекта",
+    "SUBMIT": "Подтвердить",
+    "RESET": "Сбросить",
+    "FILTER": "Фильтр",
+    "ANIMATION": "Анимация",
+    "SECONDS": "Секунды",
+    "DURATION": "Продолжительность",
+    "X_INTERVAL": "x-Интервал",
+    "Y_INTERVAL": "y-Интервал",
+    "PIXELS_SHORT": "px",
+    "MIN_IMG_WIDTH": "Ширина(мин)",
+    "IMG_HEIGHT": "Высота",
+    "BORDER_RADIUS": "Радиус границы",
+    "SECONDS_SHORT": "с",
+    "RETURN": "назад"
+  },
+  "SEARCH": {
+    "PLACEHOLDER": "Введите текст для поиска",
+    "BUTTON_NAME": "Искать"
+  },
+  "NOT_FOUND": {
+    "MESSAGE": "Извените. Такой страницы нет."
+  }
+}

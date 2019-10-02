@@ -8,6 +8,7 @@ import { AgSharedModule } from "../../shared/ag-shared.module";
     AgSharedModule
   ],
   declarations: [AgHeaderComponent],
-  exports: [AgHeaderComponent]
+  exports: [AgHeaderComponent],
+  viewPortSize: []
 })
 export class AgHeaderModule { }

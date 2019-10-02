@@ -9,8 +9,6 @@ import { AgSearchComponent } from './components/ag-search.component';
 import { AgSharedModule } from "../../shared/ag-shared.module";
 import { agSearchReducer } from "./store/ag-search.reducer";
 import { AgSearchEffects } from "./store/ag-search.effects";
-import { AgSearchService } from "./services/ag-search.service";
-import { AgSearchStoreService } from "./store/ag-search-store.service";
 
 @NgModule({
   declarations: [AgSearchComponent],
