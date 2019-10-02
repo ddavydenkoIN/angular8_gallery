@@ -6,6 +6,7 @@ import { pluck, takeUntil } from "rxjs/operators";
 import { AgHomeService } from "./services/ag-home.service";
 import { AgUnsubscribe } from "../../../providers/abstract/ag-unsubscribe";
 import { AgSearchService } from "../../common/search/services/ag-search.service";
+import { environment } from "../../../../environments/environment";
 
 @Component({
   selector: 'ag-home',
@@ -30,7 +31,7 @@ export class AgHomeComponent extends AgUnsubscribe implements OnInit, OnDestroy 
           takeUntil(this.destroy$),
           pluck('name'),
       )
-      .subscribe((tabName: string) => this.router.navigateByUrl('/angular8_gallery/home/' + tabName.toLowerCase()));
+      .subscribe((tabName: string) => this.router.navigateByUrl(`/${environment.headUrl}home/${tabName.toLowerCase()}`));
   }
 
   ngOnDestroy() {

@@ -8,6 +8,7 @@ import { AgGalleryListService } from "../../home/modules/gallery-list/services/a
 import { AgGalleryStyles, AgUserInputConfig } from "../../../../models";
 import { AgPlaygroundService } from "../services/ag-playground.service";
 import { AgUnsubscribe } from "../../../../providers/abstract/ag-unsubscribe";
+import { environment } from "../../../../../environments/environment";
 
 
 @Component({
@@ -23,6 +24,7 @@ export class AgPlaygroundComponent extends AgUnsubscribe implements OnInit, Afte
   loadCount: number;
   userInputConfig$: Observable<AgUserInputConfig>;
   imgWidth: number;
+  environment = environment;
 
   @ViewChild('galleryContainer', null)
   galleryContainer: ElementRef;
@@ -39,7 +41,7 @@ export class AgPlaygroundComponent extends AgUnsubscribe implements OnInit, Afte
       .pipe(
         take(1),
         filter(isNoGalleryLoaded => isNoGalleryLoaded)
-      ).subscribe(() => this.router.navigateByUrl('/angular8_gallery/home'));
+      ).subscribe(() => this.router.navigateByUrl(`/${environment.headUrl}home`));
 
     this.agPlaygroundService.loadAllImages();
 

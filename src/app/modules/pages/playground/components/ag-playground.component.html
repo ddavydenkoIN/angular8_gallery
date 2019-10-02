@@ -1,6 +1,6 @@
 <div class="ag-playground__header">
     {{'PLAYGROUND.HEADER' | translate}}
-    <a class="ag-playground__header-return-link" routerLink="angular8_gallery/home" href="">{{'PLAYGROUND.RETURN' | translate}}</a>
+    <a class="ag-playground__header-return-link" [routerLink]="environment.headUrl + '/home'" href="">{{'PLAYGROUND.RETURN' | translate}}</a>
 </div>
 <div class="ag-playground__options">
     <ag-playground-form></ag-playground-form>
