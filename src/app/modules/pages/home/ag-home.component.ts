@@ -30,7 +30,7 @@ export class AgHomeComponent extends AgUnsubscribe implements OnInit, OnDestroy 
           takeUntil(this.destroy$),
           pluck('name'),
       )
-      .subscribe((tabName: string) => this.router.navigateByUrl('/home/' + tabName.toLowerCase()));
+      .subscribe((tabName: string) => this.router.navigateByUrl('/angular8_gallery/home/' + tabName.toLowerCase()));
   }
 
   ngOnDestroy() {

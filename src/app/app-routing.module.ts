@@ -3,15 +3,15 @@ import { RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
   {
-      path: "home",
+      path: "angular8_gallery/home",
       loadChildren: () => import('./modules/pages/home/ag-home.module').then(mod => mod.AgHomeModule),
       data: { title: 'Home page' }
   },
   {
-    path: "playground/:id",
+    path: "angular8_gallery/playground/:id",
     loadChildren: () => import('./modules/pages/playground/ag-playground.module').then(mod => mod.AgPlaygroundModule)
   },
-  { path: '', pathMatch: 'full', redirectTo: '/home/about' },
+  { path: '', pathMatch: 'full', redirectTo: 'angular8_gallery/home/galleries' },
   { path: '**', loadChildren: () => import('./modules/pages/error-page/ag-error-page.module').then(mod => mod.AgErrorPageModule)}
 ];
 

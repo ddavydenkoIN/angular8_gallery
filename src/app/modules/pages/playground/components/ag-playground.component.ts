@@ -39,7 +39,7 @@ export class AgPlaygroundComponent extends AgUnsubscribe implements OnInit, Afte
       .pipe(
         take(1),
         filter(isNoGalleryLoaded => isNoGalleryLoaded)
-      ).subscribe(() => this.router.navigateByUrl('/home'));
+      ).subscribe(() => this.router.navigateByUrl('/angular8_gallery/home'));
 
     this.agPlaygroundService.loadAllImages();
 
